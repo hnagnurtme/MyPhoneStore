@@ -32,7 +32,7 @@ namespace PhoneHub.VIEW
 
         private void register(object sender, EventArgs e)
         {
-            string email = emailTB.Text.Trim(); 
+            string email = emailTB.Text.Trim();
             string username = usernameTB.Text.Trim();
             string password = passwordTB.Text.Trim();
             string confirmPassword = confirmPasswordTB.Text.Trim();
@@ -84,7 +84,7 @@ namespace PhoneHub.VIEW
             try
             {
                 // Attempt to register using BLL
-                bool isRegistered = _userService.RegisterUser(username, password, email ,address,phone);
+                bool isRegistered = _userService.RegisterUser(username, password, email, address, phone);
 
                 if (isRegistered)
                 {
@@ -107,14 +107,9 @@ namespace PhoneHub.VIEW
             }
         }
 
-        private void Label4_Click(object sender, EventArgs e)
-        {
-            OpenLoginForm();
-        }
 
         private void OpenLoginForm()
         {
-            // Open the login form
             Login login = new Login();
             login.Show();
             this.Hide();
@@ -125,6 +120,11 @@ namespace PhoneHub.VIEW
             // Simple email validation using regex
             string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             return Regex.IsMatch(email, pattern);
+        }
+
+        private void changeToLogin(object sender, EventArgs e)
+        {
+            OpenLoginForm();
         }
     }
 }
