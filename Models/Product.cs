@@ -28,13 +28,8 @@ namespace PhoneHub.Models
 
         public string ImageUrl { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-
-        public DateTime? UpdatedAt { get; set; }
-
         public bool IsAvailable { get; set; } = true;
 
-        // Navigation property
         public virtual ICollection<Booking> Bookings { get; set; }
     }
 }

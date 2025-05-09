@@ -24,20 +24,16 @@ namespace PhoneHub.Models
 
         public string PhoneNumber { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-
+        public string Address { get; set; }
+        
         public DateTime? LastLoginDate { get; set; }
-
         public bool IsActive { get; set; } = true;
-
-        // Foreign key for Role
+        
         public int RoleId { get; set; }
 
-        // Navigation properties
         [ForeignKey("RoleId")]
         public virtual Role Role { get; set; }
 
-        // User can have multiple bookings
         public virtual ICollection<Booking> Bookings { get; set; }
     }
 }

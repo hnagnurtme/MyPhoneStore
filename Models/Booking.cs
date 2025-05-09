@@ -17,8 +17,9 @@ namespace PhoneHub.Models
         [Required]
         public DateTime DeliveryDate { get; set; }
 
-        public string Status { get; set; } = "Pending"; // Pending, Confirmed, Delivered, Cancelled
 
+        public string Status { get; set; } = "Pending";
+         // Pending, Confirmed, Delivered, Cancelled
         [Column(TypeName = "decimal(18,2)")]
         public decimal TotalPrice { get; set; }
 
@@ -26,12 +27,10 @@ namespace PhoneHub.Models
 
         public string Notes { get; set; }
 
-        // Foreign keys
         public int UserId { get; set; }
 
         public int ProductId { get; set; }
 
-        // Navigation properties
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
 

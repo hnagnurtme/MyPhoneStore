@@ -18,7 +18,7 @@ namespace PhoneHub.Models
         [Required]
         public string Code { get; set; }
 
-        // Navigation property
+       
         public virtual ICollection<User> Users { get; set; }
     }
 }

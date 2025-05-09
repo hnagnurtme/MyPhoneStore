@@ -36,8 +36,10 @@ namespace PhoneHub.VIEW
             string username = usernameTB.Text.Trim();
             string password = passwordTB.Text.Trim();
             string confirmPassword = confirmPasswordTB.Text.Trim();
+            string address = addressTB.Text.Trim();
+            string phone = phoneTB.Text.Trim();
 
-   
+
             // Validate input
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(username) ||
                 string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
@@ -71,10 +73,18 @@ namespace PhoneHub.VIEW
                 return;
             }
 
+            // Check SDT
+            if (phone.Length != 10 || !phone.All(char.IsDigit))
+            {
+                MessageBox.Show("Please enter a valid phone number", "Registration Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 // Attempt to register using BLL
-                bool isRegistered = _userService.RegisterUser(username, password, email);
+                bool isRegistered = _userService.RegisterUser(username, password, email ,address,phone);
 
                 if (isRegistered)
                 {

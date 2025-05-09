@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PhoneHub.DAL;
 
@@ -11,9 +12,11 @@ using PhoneHub.DAL;
 namespace PhoneHub.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250509214244_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -181,7 +184,7 @@ namespace PhoneHub.Migrations
                         {
                             Id = 1,
                             Code = "ADMIN",
-                            CreatedAt = new DateTime(2025, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2025, 5, 10, 4, 42, 43, 811, DateTimeKind.Local).AddTicks(3971),
                             Description = "System Administrator",
                             IsDeleted = false,
                             Name = "Administrator"
@@ -190,7 +193,7 @@ namespace PhoneHub.Migrations
                         {
                             Id = 2,
                             Code = "CUSTOMER",
-                            CreatedAt = new DateTime(2025, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2025, 5, 10, 4, 42, 43, 812, DateTimeKind.Local).AddTicks(5987),
                             Description = "Regular Customer",
                             IsDeleted = false,
                             Name = "Customer"

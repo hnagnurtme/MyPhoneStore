@@ -40,12 +40,22 @@ namespace PhoneHub.DAL
                 .HasOne(b => b.Product)
                 .WithMany(p => p.Bookings)
                 .HasForeignKey(b => b.ProductId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Seed some basic roles
+                .OnDelete(DeleteBehavior.Restrict);            // Seed some basic roles
             modelBuilder.Entity<Role>().HasData(
-                new Role { Id = 1, Name = "Administrator", Code = "ADMIN", Description = "System Administrator" },
-                new Role { Id = 2, Name = "Customer", Code = "CUSTOMER", Description = "Regular Customer" }
+                new Role { 
+                    Id = 1, 
+                    Name = "Administrator", 
+                    Code = "ADMIN", 
+                    Description = "System Administrator",
+                    CreatedAt = new DateTime(2025, 5, 9) 
+                },
+                new Role { 
+                    Id = 2, 
+                    Name = "Customer", 
+                    Code = "CUSTOMER", 
+                    Description = "Regular Customer",
+                    CreatedAt = new DateTime(2025, 5, 9)
+                }
             );
         }
     }

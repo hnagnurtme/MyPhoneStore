@@ -34,7 +34,6 @@ namespace PhoneHub.DAL
 
             var context = new ApplicationDbContext(optionsBuilder.Options);
 
-            // Initialize database with seed data if needed
             DbInitializer.Initialize(context);
 
             return context;
