@@ -41,12 +41,16 @@
             StockQuantity = new DataGridViewTextBoxColumn();
             productBindingSource = new BindingSource(components);
             entityBindingSource = new BindingSource(components);
-            textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
+            searchName = new TextBox();
+            sortOrderCBB = new ComboBox();
             button5 = new Button();
             label1 = new Label();
             nameUserLB = new Label();
             bookingBT = new Button();
+            label2 = new Label();
+            searchBT = new Button();
+            button2 = new Button();
+            sortByCBB = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)productTB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)entityBindingSource).BeginInit();
@@ -161,26 +165,28 @@
             // 
             entityBindingSource.DataSource = typeof(Models.Entity);
             // 
-            // textBox1
+            // searchName
             // 
-            textBox1.AccessibleName = "searchTB";
-            textBox1.Location = new Point(429, 98);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(234, 27);
-            textBox1.TabIndex = 3;
+            searchName.AccessibleName = "searchTB";
+            searchName.Location = new Point(100, 97);
+            searchName.Name = "searchName";
+            searchName.Size = new Size(234, 27);
+            searchName.TabIndex = 3;
             // 
-            // comboBox1
+            // sortOrderCBB
             // 
-            comboBox1.AccessibleName = "sortOrderCBB";
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(697, 97);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(128, 28);
-            comboBox1.TabIndex = 4;
+            sortOrderCBB.AccessibleName = "sortOrderCBB";
+            sortOrderCBB.FormattingEnabled = true;
+            sortOrderCBB.Items.AddRange(new object[] { "ASC", "DESC" });
+            sortOrderCBB.Location = new Point(697, 91);
+            sortOrderCBB.Name = "sortOrderCBB";
+            sortOrderCBB.Size = new Size(128, 28);
+            sortOrderCBB.TabIndex = 4;
+            sortOrderCBB.Text = "ASC";
             // 
             // button5
             // 
-            button5.Location = new Point(847, 97);
+            button5.Location = new Point(847, 90);
             button5.Name = "button5";
             button5.Size = new Size(83, 28);
             button5.TabIndex = 5;
@@ -194,7 +200,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkBlue;
-            label1.Location = new Point(30, 103);
+            label1.Location = new Point(24, 33);
             label1.Name = "label1";
             label1.Size = new Size(198, 20);
             label1.TabIndex = 6;
@@ -203,7 +209,7 @@
             // nameUserLB
             // 
             nameUserLB.AutoSize = true;
-            nameUserLB.Location = new Point(252, 103);
+            nameUserLB.Location = new Point(253, 33);
             nameUserLB.Name = "nameUserLB";
             nameUserLB.Size = new Size(50, 20);
             nameUserLB.TabIndex = 7;
@@ -220,18 +226,61 @@
             bookingBT.UseVisualStyleBackColor = true;
             bookingBT.Click += allBooking;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(24, 105);
+            label2.Name = "label2";
+            label2.Size = new Size(70, 20);
+            label2.TabIndex = 9;
+            label2.Text = "Tim kiem";
+            // 
+            // searchBT
+            // 
+            searchBT.Location = new Point(356, 93);
+            searchBT.Name = "searchBT";
+            searchBT.Size = new Size(116, 31);
+            searchBT.TabIndex = 10;
+            searchBT.Text = "Search";
+            searchBT.UseVisualStyleBackColor = true;
+            searchBT.Click += search;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(487, 91);
+            button2.Name = "button2";
+            button2.Size = new Size(89, 33);
+            button2.TabIndex = 11;
+            button2.Text = "Reset";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += reset;
+            // 
+            // sortByCBB
+            // 
+            sortByCBB.FormattingEnabled = true;
+            sortByCBB.Items.AddRange(new object[] { "PRICE", "STOCK" });
+            sortByCBB.Location = new Point(595, 91);
+            sortByCBB.Name = "sortByCBB";
+            sortByCBB.Size = new Size(87, 28);
+            sortByCBB.TabIndex = 12;
+            sortByCBB.Text = "PRICE";
+            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(958, 583);
+            Controls.Add(sortByCBB);
+            Controls.Add(button2);
+            Controls.Add(searchBT);
+            Controls.Add(label2);
             Controls.Add(bookingBT);
             Controls.Add(nameUserLB);
             Controls.Add(label1);
             Controls.Add(button5);
             Controls.Add(button1);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox1);
+            Controls.Add(sortOrderCBB);
+            Controls.Add(searchName);
             Controls.Add(productTB);
             Controls.Add(panel2);
             Name = "HomePage";
@@ -250,8 +299,8 @@
         private DataGridView productTB;
         private BindingSource productBindingSource;
         private BindingSource entityBindingSource;
-        private TextBox textBox1;
-        private ComboBox comboBox1;
+        private TextBox searchName;
+        private ComboBox sortOrderCBB;
         private Button button5;
         private Label label1;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
@@ -263,5 +312,9 @@
         private DataGridViewTextBoxColumn StockQuantity;
         private Label nameUserLB;
         private Button bookingBT;
+        private Label label2;
+        private Button searchBT;
+        private Button button2;
+        private ComboBox sortByCBB;
     }
 }

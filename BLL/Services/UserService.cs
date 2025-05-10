@@ -13,6 +13,9 @@ namespace PhoneHub.BLL.Services
     {
         User Login(string email, string password);
         bool IsEmailExists(string email);
+
+        bool IsPassWordCorrect(string password, string email);
+        
         bool RegisterUser(string username, string password, string email, string address, string phone);
     }
 
@@ -126,5 +129,17 @@ namespace PhoneHub.BLL.Services
             var hashOfInput = HashPassword(password);
             return hashOfInput == storedHash;
         }
-    }
+        public bool IsPassWordCorrect(string password, string email)
+        {
+            var user = _unitOfWork.UserRepository
+                .GetAll()
+                .FirstOrDefault(u => u.Email == email);
+            if (user != null)
+            {
+                return VerifyPasswordHash(password, user.Password);
+            }
+            return false;
+
+        }
+       }
 }

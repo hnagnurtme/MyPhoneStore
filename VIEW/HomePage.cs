@@ -26,7 +26,8 @@ namespace PhoneHub.VIEW
             var unitOfWork = new UnitOfWork(context);
             _productService = new ProductService(unitOfWork);
             _user = user;
-            ShowProducts();
+            string searchName = "ALL";
+            ShowProducts(searchName);
             ShowUserName();
         }
 
@@ -37,26 +38,51 @@ namespace PhoneHub.VIEW
 
         private void showProfile(object sender, EventArgs e)
         {
-
+            UserProfile userProfile = new UserProfile(_user);
+            userProfile.ShowDialog();
         }
 
         private void sortBT(object sender, EventArgs e)
         {
-
+            string sortBy = sortByCBB.SelectedText;
+            string sortOrder = sortOrderCBB.SelectedText;
+            sort(sortOrder == "ASC", sortBy);
         }
 
-        private void ShowProducts()
+        private void ShowProducts(String searchName)
         {
-
-            var products = _productService.GetAvailableProducts();
-            if (products == null || !products.Any())
+            if (string.IsNullOrWhiteSpace(searchName))
             {
-                MessageBox.Show("No products available", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                searchName = "ALL";
             }
-            foreach (var product in products)
+            if (searchName == "ALL")
             {
-                productBindingSource.Add(product);
+                var products = _productService.GetAvailableProducts();
+                if (products == null || !products.Any())
+                {
+                    MessageBox.Show("No products available", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                productBindingSource.Clear();
+                foreach (var product in products)
+                {
+                    productBindingSource.Add(product);
+                }
+            }
+            else
+            {
+                var products = _productService.SearchProducts(searchName);
+                if (products == null || !products.Any())
+                {
+                    MessageBox.Show("No products found", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                productBindingSource.Clear();
+                foreach (var product in products)
+                {
+
+                    productBindingSource.Add(product);
+                }
             }
 
         }
@@ -95,6 +121,49 @@ namespace PhoneHub.VIEW
         private void allBooking(object sender, EventArgs e)
         {
 
+        }
+
+        private void changeOrder(object sender, EventArgs e)
+        {
+
+        }
+
+        private void search(object sender, EventArgs e)
+        {
+            ShowProducts(searchName.Text);
+        }
+
+        private void reset(object sender, EventArgs e)
+        {
+            ShowProducts("ALL");
+        }
+
+        private void sort(bool ascending, string sortBy)
+        {
+            switch (sortBy)
+            {
+                case "PRICE":
+                    if (ascending)
+                    {
+                        productBindingSource.DataSource = _productService.GetAvailableProducts().OrderBy(p => p.Price).ToList();
+                    }
+                    else
+                    {
+                        productBindingSource.DataSource = _productService.GetAvailableProducts().OrderByDescending(p => p.Price).ToList();
+                    }
+                    break;
+                case "STOCK":
+                    if (ascending)
+                    {
+                        productBindingSource.DataSource = _productService.GetAvailableProducts().OrderBy(p => p.StockQuantity).ToList();
+                    }
+                    else
+                    {
+                        productBindingSource.DataSource = _productService.GetAvailableProducts().OrderByDescending(p => p.StockQuantity).ToList();
+                    }
+                    break;
+            }
+           
         }
     }
 }

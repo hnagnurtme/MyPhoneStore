@@ -38,6 +38,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)productPic).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -55,7 +56,7 @@
             // nameLB
             // 
             nameLB.AutoSize = true;
-            nameLB.Location = new Point(15, 19);
+            nameLB.Location = new Point(15, 47);
             nameLB.MaximumSize = new Size(300, 0);
             nameLB.MinimumSize = new Size(300, 50);
             nameLB.Name = "nameLB";
@@ -66,7 +67,7 @@
             // descriprionLB
             // 
             descriprionLB.AutoSize = true;
-            descriprionLB.Location = new Point(15, 115);
+            descriprionLB.Location = new Point(15, 144);
             descriprionLB.MaximumSize = new Size(300, 100);
             descriprionLB.MinimumSize = new Size(300, 100);
             descriprionLB.Name = "descriprionLB";
@@ -146,17 +147,30 @@
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DarkBlue;
-            label3.Location = new Point(15, 86);
+            label3.Location = new Point(15, 109);
             label3.Name = "label3";
             label3.Size = new Size(60, 23);
             label3.TabIndex = 5;
             label3.Text = "Mo ta";
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Brown;
+            button2.ForeColor = SystemColors.ButtonHighlight;
+            button2.Location = new Point(10, 10);
+            button2.Name = "button2";
+            button2.Size = new Size(67, 27);
+            button2.TabIndex = 6;
+            button2.Text = "Back";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += backClicked;
             // 
             // ProductDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(672, 461);
+            Controls.Add(button2);
             Controls.Add(label3);
             Controls.Add(button1);
             Controls.Add(panel1);
@@ -185,5 +199,6 @@
         private Label label3;
         private Label label1;
         private Label label2;
+        private Button button2;
     }
 }

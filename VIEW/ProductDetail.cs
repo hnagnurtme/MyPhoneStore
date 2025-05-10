@@ -43,8 +43,13 @@ namespace PhoneHub.VIEW
 
         private void order(object sender, EventArgs e)
         {
-            BookingDetail booking = new BookingDetail(_product,_user);
+            BookingDetail booking = new BookingDetail(_product, _user);
             booking.ShowDialog();
+        }
+
+        private void backClicked(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
