@@ -31,7 +31,7 @@ namespace PhoneHub
             var user = _userService.Login(email, password);
             if (user != null)
             {
-                HomePage mainForm = new HomePage();
+                HomePage mainForm = new HomePage(user);
                 mainForm.Show();
                 this.Hide();
             }
