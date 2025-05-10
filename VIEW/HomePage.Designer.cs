@@ -52,10 +52,12 @@
             searchBT = new Button();
             button2 = new Button();
             sortByCBB = new ComboBox();
+            pictureBox1 = new PictureBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productTB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)entityBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -65,7 +67,7 @@
             button1.Name = "button1";
             button1.Size = new Size(83, 60);
             button1.TabIndex = 0;
-            button1.Text = "button1";
+            button1.Text = "Profile";
             button1.UseVisualStyleBackColor = true;
             button1.Click += showProfile;
             // 
@@ -211,20 +213,22 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkBlue;
-            label1.Location = new Point(24, 33);
+            label1.Location = new Point(125, 38);
             label1.Name = "label1";
-            label1.Size = new Size(198, 20);
+            label1.Size = new Size(275, 26);
             label1.TabIndex = 6;
             label1.Text = "PhoneHub xin chao ban !!!";
             // 
             // nameUserLB
             // 
             nameUserLB.AutoSize = true;
-            nameUserLB.Location = new Point(253, 33);
+            nameUserLB.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            nameUserLB.ForeColor = Color.SeaGreen;
+            nameUserLB.Location = new Point(411, 38);
             nameUserLB.Name = "nameUserLB";
-            nameUserLB.Size = new Size(50, 20);
+            nameUserLB.Size = new Size(61, 23);
             nameUserLB.TabIndex = 7;
             nameUserLB.Text = "label2";
             // 
@@ -235,7 +239,7 @@
             bookingBT.Name = "bookingBT";
             bookingBT.Size = new Size(128, 60);
             bookingBT.TabIndex = 8;
-            bookingBT.Text = "button2";
+            bookingBT.Text = "Don Hang";
             bookingBT.UseVisualStyleBackColor = true;
             bookingBT.Click += allBooking;
             // 
@@ -278,11 +282,22 @@
             sortByCBB.TabIndex = 12;
             sortByCBB.Text = "PRICE";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.anhlogo;
+            pictureBox1.Location = new Point(38, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(81, 79);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 13;
+            pictureBox1.TabStop = false;
+            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(958, 583);
+            Controls.Add(pictureBox1);
             Controls.Add(sortByCBB);
             Controls.Add(button2);
             Controls.Add(searchBT);
@@ -303,6 +318,7 @@
             ((System.ComponentModel.ISupportInitialize)productTB).EndInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)entityBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -331,5 +347,6 @@
         private Button button2;
         private ComboBox sortByCBB;
         private Button addBT;
+        private PictureBox pictureBox1;
     }
 }

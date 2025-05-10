@@ -172,7 +172,9 @@ namespace PhoneHub.VIEW
 
         private void allBooking(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.OK;
+            Orders orders = new Orders(_user);
+            orders.ShowDialog();
         }
 
         private void changeOrder(object sender, EventArgs e)

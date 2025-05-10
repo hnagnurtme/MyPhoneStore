@@ -73,5 +73,12 @@ namespace PhoneHub.VIEW
             homePage.Show();
             this.Hide();
         }
+
+        private void showOrders(object sender, EventArgs e)
+        {
+            Orders orders = new Orders(_user);
+            orders.Show();
+            this.Hide();
+        }
     }
 }

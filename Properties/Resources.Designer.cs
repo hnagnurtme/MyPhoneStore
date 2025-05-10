@@ -83,6 +83,26 @@ namespace PhoneHub.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap anhlogo {
+            get {
+                object obj = ResourceManager.GetObject("anhlogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ANHLOGO1 {
+            get {
+                object obj = ResourceManager.GetObject("ANHLOGO1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Group_33__1_ {
             get {
                 object obj = ResourceManager.GetObject("Group 33 (1)", resourceCulture);

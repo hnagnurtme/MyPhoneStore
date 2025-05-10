@@ -39,8 +39,10 @@
             passwordTB = new TextBox();
             emailTB = new TextBox();
             registerBT = new Button();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -64,9 +66,9 @@
             groupBox1.Controls.Add(passwordTB);
             groupBox1.Controls.Add(emailTB);
             groupBox1.Controls.Add(registerBT);
-            groupBox1.Location = new Point(55, 43);
+            groupBox1.Location = new Point(67, 160);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(317, 513);
+            groupBox1.Size = new Size(317, 392);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             // 
@@ -152,7 +154,7 @@
             // 
             registerBT.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             registerBT.ForeColor = Color.DarkBlue;
-            registerBT.Location = new Point(88, 455);
+            registerBT.Location = new Point(84, 323);
             registerBT.Name = "registerBT";
             registerBT.Size = new Size(133, 36);
             registerBT.TabIndex = 3;
@@ -160,11 +162,22 @@
             registerBT.UseVisualStyleBackColor = true;
             registerBT.Click += login;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.anhlogo;
+            pictureBox2.Location = new Point(137, 23);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(147, 131);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 12;
+            pictureBox2.TabStop = false;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(958, 583);
+            Controls.Add(pictureBox2);
             Controls.Add(groupBox1);
             Controls.Add(pictureBox1);
             Name = "Login";
@@ -173,6 +186,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -188,5 +202,6 @@
         private TextBox passwordTB;
         private TextBox emailTB;
         private Button registerBT;
+        private PictureBox pictureBox2;
     }
 }
