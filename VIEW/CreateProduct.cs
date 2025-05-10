@@ -16,7 +16,8 @@ namespace PhoneHub.VIEW
 {
     public partial class CreateProduct : Form
     {
-        private readonly Product _product;        private readonly IProductService _productService;
+        private readonly Product _product;        
+        private readonly IProductService _productService;
 
         public delegate void ProductHandler();
 
@@ -131,7 +132,7 @@ namespace PhoneHub.VIEW
             if (result == DialogResult.Yes)
             {                try
                 {
-                    _productService.Delete(_product.Id);
+                    _productService.SoftDelete(_product.Id);
                     MessageBox.Show("Product deleted successfully", "Delete Product",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     

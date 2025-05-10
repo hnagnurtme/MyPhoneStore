@@ -31,10 +31,27 @@ namespace PhoneHub
             var user = _userService.Login(email, password);
             if (user != null)
             {
-                HomePage mainForm = new HomePage(user);
-                mainForm.Show();
-                this.Hide();
+                switch (user.RoleId)
+                {
+                    case 1:
+                        Dashboard dashboard = new Dashboard(user);
+                        dashboard.Show();
+                        this.Hide();
+                        break;
+
+                    case 2:
+                        HomePage homePage = new HomePage(user);
+                        homePage.Show();
+                        this.Hide();
+                        break;
+
+                    default:
+                        MessageBox.Show("You do not have permission to access this application", "Login Failed",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                }
             }
+
             else
             {
                 MessageBox.Show("Invalid email or password", "Login Failed",

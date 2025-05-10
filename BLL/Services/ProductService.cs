@@ -20,6 +20,8 @@ namespace PhoneHub.BLL.Services
         
         bool UpdateStock(int productId, int newQuantity);
         int GetStockLevel(int productId);
+
+        public void SoftDelete(int id);
     }
 
     public class ProductService : Service<Product>, IProductService
@@ -202,6 +204,25 @@ namespace PhoneHub.BLL.Services
         bool IProductService.CreateOrUpdateProduct(Product product)
         {
             return CreateOrUpdateProduct(product);
+        }
+
+        public void SoftDelete(int id)
+        {
+            try
+            {
+                var product = GetById(id);
+                if (product == null)
+                    throw new Exception($"Product with ID {id} not found.");
+                product.IsDeleted = true;
+                product.DeletedAt = DateTime.Now;
+                _unitOfWork.Repository<Product>().Update(product);
+                _unitOfWork.Save();
+            }
+            catch (Exception ex)
+            {
+                var innerException = ex.InnerException ?? ex;
+                throw new Exception($"Error soft deleting product: {innerException.Message}", innerException);
+            }
         }
     }
 }

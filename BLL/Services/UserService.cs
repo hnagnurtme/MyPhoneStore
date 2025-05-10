@@ -17,6 +17,8 @@ namespace PhoneHub.BLL.Services
         bool IsPassWordCorrect(string password, string email);
         
         bool RegisterUser(string username, string password, string email, string address, string phone);
+
+        IEnumerable<User> GetAllUserAndRole();
     }
 
     public class UserService : IUserService
@@ -141,5 +143,32 @@ namespace PhoneHub.BLL.Services
             return false;
 
         }
-       }
+
+        IEnumerable<User> GetAllUserAndRole()
+        {
+            var users = _unitOfWork.UserRepository.GetAll();
+            var roles = _unitOfWork.RoleRepository.GetAll();
+            var userWithRole = from user in users
+                               join role in roles on user.RoleId equals role.Id
+                               select new User
+                               {
+                                   Id = user.Id,
+                                   Name = user.Name,
+                                   Email = user.Email,
+                                   PhoneNumber = user.PhoneNumber,
+                                   Address = user.Address,
+                                   RoleId = role.Id,
+                                   Role = role,
+                                   CreatedAt = user.CreatedAt,
+                                   LastLoginDate = user.LastLoginDate,
+                                   IsActive = user.IsActive
+                               };
+            return userWithRole.ToList();
+        }
+
+        IEnumerable<User> IUserService.GetAllUserAndRole()
+        {
+            return GetAllUserAndRole();
+        }
+    }
 }

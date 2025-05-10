@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             button1 = new Button();
             panel2 = new Panel();
+            addBT = new Button();
             productTB = new DataGridView();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -51,7 +52,6 @@
             searchBT = new Button();
             button2 = new Button();
             sortByCBB = new ComboBox();
-            button3 = new Button();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productTB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
@@ -72,11 +72,21 @@
             // panel2
             // 
             panel2.AccessibleName = "Footer";
-            panel2.Controls.Add(button3);
+            panel2.Controls.Add(addBT);
             panel2.Location = new Point(1, 514);
             panel2.Name = "panel2";
             panel2.Size = new Size(955, 57);
             panel2.TabIndex = 1;
+            // 
+            // addBT
+            // 
+            addBT.Location = new Point(731, 13);
+            addBT.Name = "addBT";
+            addBT.Size = new Size(198, 30);
+            addBT.TabIndex = 0;
+            addBT.Text = "Add";
+            addBT.UseVisualStyleBackColor = true;
+            addBT.Click += addProduct;
             // 
             // productTB
             // 
@@ -268,16 +278,6 @@
             sortByCBB.TabIndex = 12;
             sortByCBB.Text = "PRICE";
             // 
-            // button3
-            // 
-            button3.Location = new Point(731, 13);
-            button3.Name = "button3";
-            button3.Size = new Size(198, 30);
-            button3.TabIndex = 0;
-            button3.Text = "Add";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += addProduct;
-            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -330,6 +330,6 @@
         private Button searchBT;
         private Button button2;
         private ComboBox sortByCBB;
-        private Button button3;
+        private Button addBT;
     }
 }
