@@ -51,6 +51,8 @@
             searchBT = new Button();
             button2 = new Button();
             sortByCBB = new ComboBox();
+            button3 = new Button();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productTB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)entityBindingSource).BeginInit();
@@ -70,7 +72,8 @@
             // panel2
             // 
             panel2.AccessibleName = "Footer";
-            panel2.Location = new Point(0, 527);
+            panel2.Controls.Add(button3);
+            panel2.Location = new Point(1, 514);
             panel2.Name = "panel2";
             panel2.Size = new Size(955, 57);
             panel2.TabIndex = 1;
@@ -265,6 +268,16 @@
             sortByCBB.TabIndex = 12;
             sortByCBB.Text = "PRICE";
             // 
+            // button3
+            // 
+            button3.Location = new Point(731, 13);
+            button3.Name = "button3";
+            button3.Size = new Size(198, 30);
+            button3.TabIndex = 0;
+            button3.Text = "Add";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += addProduct;
+            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -286,6 +299,7 @@
             Name = "HomePage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "HomePage";
+            panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)productTB).EndInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)entityBindingSource).EndInit();
@@ -316,5 +330,6 @@
         private Button searchBT;
         private Button button2;
         private ComboBox sortByCBB;
+        private Button button3;
     }
 }

@@ -15,7 +15,7 @@ namespace PhoneHub.BLL.Services
         IEnumerable<Product> GetProductsByBrand(string brand);
         IEnumerable<Product> GetProductsByPriceRange(decimal minPrice, decimal maxPrice);
 
-
+        bool CreateOrUpdateProduct(Product product);
         Product getDistinctProductByName(string name);
         
         bool UpdateStock(int productId, int newQuantity);
@@ -164,6 +164,44 @@ namespace PhoneHub.BLL.Services
         Product IProductService.getDistinctProductByName(string name)
         {
             return getDistinctProductByName(name);
+        }
+
+        bool CreateOrUpdateProduct(Product product)
+        {
+            try
+            {
+                if (product.Id == 0)
+                {
+                    _unitOfWork.Repository<Product>().Add(product);
+                }
+                else
+                {
+                    var existingProduct = GetById(product.Id);
+                    if (existingProduct == null)
+                        return false;
+                    existingProduct.Name = product.Name;
+                    existingProduct.Description = product.Description;
+                    existingProduct.Price = product.Price;
+                    existingProduct.StockQuantity = product.StockQuantity;
+                    existingProduct.Model = product.Model;
+                    existingProduct.Brand = product.Brand;
+                    existingProduct.ImageUrl = product.ImageUrl;
+                    existingProduct.UpdatedAt = DateTime.Now;
+                    _unitOfWork.Repository<Product>().Update(existingProduct);
+                }
+                _unitOfWork.Save();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                var innerException = ex.InnerException ?? ex;
+                throw new Exception($"Error creating or updating product: {innerException.Message}", innerException);
+            }
+        }
+
+        bool IProductService.CreateOrUpdateProduct(Product product)
+        {
+            return CreateOrUpdateProduct(product);
         }
     }
 }

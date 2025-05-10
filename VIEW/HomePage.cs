@@ -99,8 +99,32 @@ namespace PhoneHub.VIEW
                     Product selectedProduct = _productService.getDistinctProductByName(selectedProductName);
                     if (selectedProduct != null)
                     {
-                        var productDetailsForm = new ProductDetail(selectedProduct, _user);
-                        productDetailsForm.ShowDialog();
+                        //var productDetailsForm = new ProductDetail(selectedProduct, _user);
+                        //productDetailsForm.ShowDialog();
+                        if (_user.RoleId == 2)
+                        {
+                            ProductDetail productDetailsForm = new ProductDetail(selectedProduct, _user);
+                            productDetailsForm.ShowDialog();
+                        }
+                        else
+                        {                            if (_user.RoleId == 1)
+                            {
+                                CreateProduct productDetailsForm = new CreateProduct(selectedProduct);
+                                
+                                // Capture the current search text
+                                string currentSearch = searchName.Text;
+                                
+                                // Subscribe to the ProductChanged event
+                                productDetailsForm.ProductChanged += () => ShowProducts(currentSearch);
+                                
+                                productDetailsForm.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("You do not have permission to view this product", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+
                     }
                     else
                     {
@@ -163,7 +187,19 @@ namespace PhoneHub.VIEW
                     }
                     break;
             }
-           
+
+        }        private void addProduct(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            CreateProduct createProduct = new CreateProduct(new Product());
+            
+            // Capture the current search text
+            string currentSearch = searchName.Text;
+            
+            // Subscribe to the ProductChanged event
+            createProduct.ProductChanged += () => ShowProducts(currentSearch);
+            
+            createProduct.ShowDialog();
         }
     }
 }
