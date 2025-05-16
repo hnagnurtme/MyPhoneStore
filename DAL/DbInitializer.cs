@@ -30,7 +30,8 @@ namespace PhoneHub.DAL
                 Address = "Admin Office, PhoneHub HQ",
                 RoleId = 1, // Admin role
                 CreatedAt = new DateTime(2025, 5, 10),
-                IsActive = true
+                IsActive = true,
+                Description =" Add new Admin"
             };
             context.Users.Add(adminUser);
 
@@ -44,7 +45,8 @@ namespace PhoneHub.DAL
                 Address = "123 Customer Street",
                 RoleId = 2, // Customer role
                 CreatedAt = new DateTime(2025, 5, 10),
-                IsActive = true
+                IsActive = true,
+                Description = " Add new USer"
             };
             context.Users.Add(customer);
 
@@ -85,7 +87,8 @@ namespace PhoneHub.DAL
                     StockQuantity = 30,
                     ImageUrl = "/Resources/pixel9pro.jpg",
                     IsAvailable = true,
-                    CreatedAt = new DateTime(2025, 5, 10)
+                    CreatedAt = new DateTime(2025, 5, 10),
+
                 },
                 new Product
                 {
@@ -97,7 +100,8 @@ namespace PhoneHub.DAL
                     StockQuantity = 25,
                     ImageUrl = "/Resources/oneplus13pro.jpg",
                     IsAvailable = true,
-                    CreatedAt = new DateTime(2025, 5, 10)
+                    CreatedAt = new DateTime(2025, 5, 10),
+                   
                 },
                 new Product
                 {
@@ -115,40 +119,40 @@ namespace PhoneHub.DAL
 
             context.Products.AddRange(products);
 
-            // Create some sample bookings
-            var bookings = new List<Booking>
-            {
-                new Booking
-                {
-                    Name = "iPhone 15 Pro Max Booking",
-                    Description = "Pre-order for new iPhone 15 Pro Max",
-                    BookingDate = new DateTime(2025, 5, 8),
-                    DeliveryDate = new DateTime(2025, 5, 15),
-                    Status = "Confirmed",
-                    TotalPrice = 1199.99M,
-                    ShippingAddress = "123 Customer Street",
-                    Notes = "Please deliver during business hours",
-                    UserId = 2, // Customer
-                    ProductId = 1, // iPhone
-                    CreatedAt = new DateTime(2025, 5, 8)
-                },
-                new Booking
-                {
-                    Name = "Galaxy S25 Ultra Booking",
-                    Description = "Order for Galaxy S25 Ultra",
-                    BookingDate = new DateTime(2025, 5, 9),
-                    DeliveryDate = new DateTime(2025, 5, 16),
-                    Status = "Pending",
-                    TotalPrice = 1099.99M,
-                    ShippingAddress = "123 Customer Street",
-                    Notes = "Please call before delivery",
-                    UserId = 2, // Customer
-                    ProductId = 2, // Samsung
-                    CreatedAt = new DateTime(2025, 5, 9)
-                }
-            };
+            //// Create some sample bookings
+            //var bookings = new List<Booking>
+            //{
+            //    new Booking
+            //    {
+            //        Name = "iPhone 15 Pro Max Booking",
+            //        Description = "Pre-order for new iPhone 15 Pro Max",
+            //        BookingDate = new DateTime(2025, 5, 8),
+            //        DeliveryDate = new DateTime(2025, 5, 15),
+            //        Status = "Confirmed",
+            //        TotalPrice = 1199.99M,
+            //        ShippingAddress = "123 Customer Street",
+            //        Notes = "Please deliver during business hours",
+            //        UserId = 2, // Customer
+            //        ProductId = 1, // iPhone
+            //        CreatedAt = new DateTime(2025, 5, 8)
+            //    },
+            //    new Booking
+            //    {
+            //        Name = "Galaxy S25 Ultra Booking",
+            //        Description = "Order for Galaxy S25 Ultra",
+            //        BookingDate = new DateTime(2025, 5, 9),
+            //        DeliveryDate = new DateTime(2025, 5, 16),
+            //        Status = "Pending",
+            //        TotalPrice = 1099.99M,
+            //        ShippingAddress = "123 Customer Street",
+            //        Notes = "Please call before delivery",
+            //        UserId = 2, // Customer
+            //        ProductId = 2, // Samsung
+            //        CreatedAt = new DateTime(2025, 5, 9)
+            //    }
+            //};
 
-            context.Bookings.AddRange(bookings);
+            //context.Bookings.AddRange(bookings);
 
             // Save all changes to the database
             context.SaveChanges();
