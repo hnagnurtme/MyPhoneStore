@@ -60,6 +60,7 @@ namespace PhoneHub.VIEW
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+       
         private void showCustomer(object sender, EventArgs e)
         {
             UserDashboard userDashboard = new UserDashboard(_user);
@@ -78,5 +79,14 @@ namespace PhoneHub.VIEW
             homePage.Show();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

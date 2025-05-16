@@ -18,8 +18,7 @@ namespace PhoneHub.Models
         public DateTime DeliveryDate { get; set; }
 
 
-        public string Status { get; set; } = "Pending";
-         // Pending, Confirmed, Delivered, Cancelled
+        public string Status { get; set; } = "ACCEPTED";
         [Column(TypeName = "decimal(18,2)")]
         public decimal TotalPrice { get; set; }
 

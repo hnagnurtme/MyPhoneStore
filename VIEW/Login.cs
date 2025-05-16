@@ -14,6 +14,7 @@ namespace PhoneHub
             var context = DbContextFactory.CreateDbContext();
             var unitOfWork = new UnitOfWork(context);
             _userService = new UserService(unitOfWork);
+           
         }
 
         private void login(object sender, EventArgs e)

@@ -28,6 +28,7 @@ namespace PhoneHub.VIEW
             _user = user;
             ShowProducts("ALL");
             ShowUserName();
+            Style.ApplyModernStyleToControl(this);
         }
 
         private void ShowUserName()

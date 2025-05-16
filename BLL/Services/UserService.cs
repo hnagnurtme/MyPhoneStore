@@ -21,43 +21,14 @@ namespace PhoneHub.BLL.Services
         IEnumerable<User> GetAllUserAndRole();
     }
 
-    public class UserService : IUserService
+    public class UserService : Service<User>, IUserService
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public UserService(IUnitOfWork unitOfWork)
+        public UserService(IUnitOfWork unitOfWork) : base(unitOfWork) 
         {
             _unitOfWork = unitOfWork;
         }
-
-        public IEnumerable<User> GetAll()
-        {
-            return _unitOfWork.UserRepository.GetAll();
-        }
-
-        public User GetById(int id)
-        {
-            return _unitOfWork.UserRepository.GetById(id);
-        }
-
-        public void Create(User user)
-        {
-            _unitOfWork.UserRepository.Add(user);
-            _unitOfWork.Save();
-        }
-
-        public void Update(User user)
-        {
-            _unitOfWork.UserRepository.Update(user);
-            _unitOfWork.Save();
-        }
-
-        public void Delete(int id)
-        {
-            _unitOfWork.UserRepository.Delete(id);
-            _unitOfWork.Save();
-        }
-
         public User Login(string email, string password)
         {
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))

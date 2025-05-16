@@ -12,8 +12,7 @@ namespace PhoneHub.BLL.Services
     {
         IEnumerable<Product> GetAvailableProducts();
         IEnumerable<Product> SearchProducts(string searchTerm);
-        IEnumerable<Product> GetProductsByBrand(string brand);
-        IEnumerable<Product> GetProductsByPriceRange(decimal minPrice, decimal maxPrice);
+     
 
         bool CreateOrUpdateProduct(Product product);
         Product getDistinctProductByName(string name);
@@ -88,23 +87,7 @@ namespace PhoneHub.BLL.Services
             }
         }
 
-        public IEnumerable<Product> GetProductsByPriceRange(decimal minPrice, decimal maxPrice)
-        {
-            try
-            {
-                return _unitOfWork.Repository<Product>().GetAll().Where(p => 
-                    p.Price >= minPrice && 
-                    p.Price <= maxPrice && 
-                    p.IsAvailable && 
-                    !p.IsDeleted);
-            }
-            catch (Exception ex)
-            {
-                var innerException = ex.InnerException ?? ex;
-                throw new Exception($"Error retrieving products by price range: {innerException.Message}", innerException);
-            }
-        }
-
+      
         public bool UpdateStock(int productId, int newQuantity)
         {
             if (newQuantity < 0)

@@ -31,6 +31,7 @@ namespace PhoneHub.VIEW
             _product = product;
             _user = user;
             LoadGUI();
+            Style.ApplyModernStyleToControl(this);
         }
 
         private void confirmBooking(object sender, EventArgs e)

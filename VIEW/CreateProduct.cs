@@ -32,6 +32,7 @@ namespace PhoneHub.VIEW
             _productService = new ProductService(unitOfWork);
             _product = product;
             LoadGUI();
+            Style.ApplyModernStyleToControl(this);
         }
 
         private void confirm(object sender, EventArgs e)
@@ -136,7 +137,6 @@ namespace PhoneHub.VIEW
                     MessageBox.Show("Product deleted successfully", "Delete Product",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
-                    // Notify subscribers that product was deleted
                     ProductChanged?.Invoke();
                     
                     DialogResult = DialogResult.OK;
@@ -153,5 +153,40 @@ namespace PhoneHub.VIEW
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        private void ApplyStyle()
+        {
+            this.BackColor = Color.White;
+
+            Font commonFont = new Font("Segoe UI", 10, FontStyle.Regular);
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Label lbl)
+                {
+                    lbl.Font = commonFont;
+                    lbl.ForeColor = Color.Black;
+                }
+                else if (ctrl is TextBox tb)
+                {
+                    tb.Font = commonFont;
+                    tb.BorderStyle = BorderStyle.FixedSingle;
+                    tb.BackColor = Color.WhiteSmoke;
+                }
+                else if (ctrl is Button btn)
+                {
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.BackColor = Color.FromArgb(0, 123, 255); // Màu xanh dương đẹp
+                    btn.ForeColor = Color.White;
+                    btn.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    btn.FlatAppearance.BorderSize = 0;
+                }
+                else if (ctrl is PictureBox pic)
+                {
+                    pic.SizeMode = PictureBoxSizeMode.Zoom;
+                    pic.BorderStyle = BorderStyle.FixedSingle;
+                }
+            }
+        }
     }
+
 }

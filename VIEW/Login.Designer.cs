@@ -1,4 +1,6 @@
-﻿namespace PhoneHub
+﻿using PhoneHub.VIEW;
+
+namespace PhoneHub
 {
     partial class Login
     {

@@ -22,12 +22,10 @@ namespace PhoneHub.VIEW
         public SignUp()
         {
             InitializeComponent();
-
-            // Setup dependency injection using factory
             var context = DbContextFactory.CreateDbContext();
             var unitOfWork = new UnitOfWork(context);
             _userService = new UserService(unitOfWork);
-
+            Style.ApplyModernStyleToControl(this);
         }
 
         private void register(object sender, EventArgs e)

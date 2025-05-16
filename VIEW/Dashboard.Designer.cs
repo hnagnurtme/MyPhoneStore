@@ -77,7 +77,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.anhlogo;
-            pictureBox1.Location = new Point(45, 17);
+            pictureBox1.Location = new Point(49, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(109, 104);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -150,8 +150,9 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = SystemColors.ControlDark;
             label1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.MediumTurquoise;
+            label1.ForeColor = Color.AliceBlue;
             label1.Location = new Point(12, 130);
             label1.Name = "label1";
             label1.Size = new Size(113, 23);

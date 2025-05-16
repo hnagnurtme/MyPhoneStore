@@ -1,4 +1,3 @@
-// filepath: d:\PhoneHub\BLL\Services\BookingService.cs
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +10,7 @@ namespace PhoneHub.BLL.Services
     public interface IBookingService : IService<Booking>
     {
         IEnumerable<Booking> GetBookingsByUserId(int userId);
-        IEnumerable<Booking> GetBookingsByProductId(int productId);
-        IEnumerable<Booking> GetBookingsByStatus(string status);
-        IEnumerable<Booking> GetBookingsByDateRange(DateTime startDate, DateTime endDate);
-        bool UpdateBookingStatus(int bookingId, string status);
-        bool CancelBooking(int bookingId);
+       
         decimal CalculateBookingTotal(int productId, int quantity);
     }
 
@@ -56,97 +51,7 @@ namespace PhoneHub.BLL.Services
             }
         }
 
-        public IEnumerable<Booking> GetBookingsByStatus(string status)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(status))
-                    return _unitOfWork.Repository<Booking>().GetAll().Where(b => !b.IsDeleted);
-
-                return _unitOfWork.Repository<Booking>().GetAll().Where(b => b.Status == status && !b.IsDeleted);
-            }
-            catch (Exception ex)
-            {
-                var innerException = ex.InnerException ?? ex;
-                throw new Exception($"Error retrieving bookings by status: {innerException.Message}", innerException);
-            }
-        }
-
-        public IEnumerable<Booking> GetBookingsByDateRange(DateTime startDate, DateTime endDate)
-        {
-            try
-            {
-                return _unitOfWork.Repository<Booking>().GetAll().Where(b => 
-                    b.BookingDate >= startDate && 
-                    b.BookingDate <= endDate && 
-                    !b.IsDeleted);
-            }
-            catch (Exception ex)
-            {
-                var innerException = ex.InnerException ?? ex;
-                throw new Exception($"Error retrieving bookings by date range: {innerException.Message}", innerException);
-            }
-        }
-
-        public bool UpdateBookingStatus(int bookingId, string status)
-        {
-            if (string.IsNullOrWhiteSpace(status))
-                throw new ArgumentException("Status cannot be null or empty");
-
-            try
-            {
-                var booking = GetById(bookingId);
-                if (booking == null)
-                    return false;
-
-                booking.Status = status;
-                booking.UpdatedAt = DateTime.Now;
-
-                _unitOfWork.Repository<Booking>().Update(booking);
-                _unitOfWork.Save();
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                var innerException = ex.InnerException ?? ex;
-                throw new Exception($"Error updating booking status: {innerException.Message}", innerException);
-            }
-        }
-
-        public bool CancelBooking(int bookingId)
-        {
-            try
-            {
-                var booking = GetById(bookingId);
-                if (booking == null)
-                    return false;
-
-                // Check if booking is already delivered or cancelled
-                if (booking.Status == "Delivered" || booking.Status == "Cancelled")
-                    return false;
-
-                booking.Status = "Cancelled";
-                booking.UpdatedAt = DateTime.Now;
-
-                _unitOfWork.Repository<Booking>().Update(booking);
-                _unitOfWork.Save();
-
-                // Increase stock quantity for the product
-                var product = _productService.GetById(booking.ProductId);
-                if (product != null)
-                {
-                    _productService.UpdateStock(product.Id, product.StockQuantity + 1);
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                var innerException = ex.InnerException ?? ex;
-                throw new Exception($"Error cancelling booking: {innerException.Message}", innerException);
-            }
-        }
+      
 
         public decimal CalculateBookingTotal(int productId, int quantity)
         {
