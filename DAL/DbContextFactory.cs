@@ -10,7 +10,7 @@ namespace PhoneHub.DAL
 {
     public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
     {
-        private static readonly string _connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=PHONEHUB;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
+        private static readonly string _connectionString = "Data Source=WINDOWS-F6D8G21\\SQLEXPRESS;Initial Catalog=PHONEHUB;Integrated Security=True;TrustServerCertificate=True;";
 
         public ApplicationDbContext CreateDbContext(string[] args)
         {
@@ -25,7 +25,7 @@ namespace PhoneHub.DAL
     
     public static class DbContextFactory
     {
-        private static readonly string _connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=PHONEHUB;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
+        private static readonly string _connectionString = "Data Source=WINDOWS-F6D8G21\\SQLEXPRESS;Initial Catalog=PHONEHUB;Integrated Security=True;TrustServerCertificate=True;";
 
         public static ApplicationDbContext CreateDbContext()
         {

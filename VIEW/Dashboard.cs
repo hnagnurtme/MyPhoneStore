@@ -64,21 +64,19 @@ namespace PhoneHub.VIEW
         {
             UserDashboard userDashboard = new UserDashboard(_user);
             userDashboard.Show();
-            this.Hide();
-        }
-
-        private void productShow(object sender, EventArgs e)
-        {
-            HomePage homePage = new HomePage(_user);
-            homePage.Show();
-            this.Hide();
         }
 
         private void showOrders(object sender, EventArgs e)
         {
             Orders orders = new Orders(_user);
             orders.Show();
-            this.Hide();
         }
+
+        private void showProducts(object sender, EventArgs e)
+        {
+            HomePage homePage = new HomePage(_user);
+            homePage.Show();
+        }
+
     }
 }
