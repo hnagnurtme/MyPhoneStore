@@ -12,6 +12,10 @@ namespace PhoneHub.BLL.Services
         IEnumerable<Booking> GetBookingsByUserId(int userId);
        
         decimal CalculateBookingTotal(int productId, int quantity);
+
+        long countTotalBooking();
+
+        decimal countToatlAmount();
     }
 
     public class BookingService : Service<Booking>, IBookingService
@@ -51,7 +55,7 @@ namespace PhoneHub.BLL.Services
             }
         }
 
-      
+
 
         public decimal CalculateBookingTotal(int productId, int quantity)
         {
@@ -123,6 +127,32 @@ namespace PhoneHub.BLL.Services
             {
                 var innerException = ex.InnerException ?? ex;
                 throw new Exception($"Error creating booking: {innerException.Message}", innerException);
+            }
+        }
+
+        public long countTotalBooking()
+        {
+            try
+            {
+                return _unitOfWork.Repository<Booking>().GetAll().Count(b => !b.IsDeleted);
+            }
+            catch (Exception ex)
+            {
+                var innerException = ex.InnerException ?? ex;
+                throw new Exception($"Error counting total bookings: {innerException.Message}", innerException);
+            }
+        }
+
+        public decimal countToatlAmount()
+        {
+            try
+            {
+                return _unitOfWork.Repository<Booking>().GetAll().Sum(b => b.TotalPrice);
+            }
+            catch (Exception ex)
+            {
+                var innerException = ex.InnerException ?? ex;
+                throw new Exception($"Error counting total amount: {innerException.Message}", innerException);
             }
         }
     }

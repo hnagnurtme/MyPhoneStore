@@ -28,7 +28,8 @@ namespace PhoneHub.VIEW
             _user = user;
             ShowProducts("ALL");
             ShowUserName();
-            Style.ApplyModernStyleToControl(this);
+            Style.ApplyStyleToFormControls(this);
+            this.BackColor = Color.FromArgb(245, 247, 250); 
         }
 
         private void ShowUserName()
@@ -44,7 +45,8 @@ namespace PhoneHub.VIEW
         {
             UserProfile userProfile = new UserProfile(_user);
             userProfile.ShowDialog();
-        }        private void sortBT(object sender, EventArgs e)
+        }       
+        private void sortBT(object sender, EventArgs e)
         {
             string sortBy = sortByCBB.SelectedItem?.ToString() ?? "PRICE";
             string sortOrder = sortOrderCBB.SelectedItem?.ToString() ?? "ASC";
@@ -129,6 +131,7 @@ namespace PhoneHub.VIEW
             if (productTB.SelectedCells.Count > 1 && productTB.SelectedCells[1]?.Value != null)
             {
                 var selectedProductName = productBindingSource.Current?.GetType().GetProperty("Name")?.GetValue(productBindingSource.Current, null)?.ToString();
+             
                 if (!string.IsNullOrWhiteSpace(selectedProductName))
                 {
                     Product selectedProduct = _productService.getDistinctProductByName(selectedProductName);
@@ -140,7 +143,8 @@ namespace PhoneHub.VIEW
                             productDetailsForm.ShowDialog();
                         }
                         else
-                        {                            if (_user.RoleId == 1)                            {
+                        {                            
+                            if (_user.RoleId == 1)                            {
                                 CreateProduct productDetailsForm = new CreateProduct(selectedProduct);
                                   // Subscribe to the ProductChanged event to refresh the current view
                                 string currentSearch = string.IsNullOrWhiteSpace(searchName.Text) ? "ALL" : searchName.Text;
@@ -177,11 +181,7 @@ namespace PhoneHub.VIEW
             Orders orders = new Orders(_user);
             orders.ShowDialog();
         }
-
-        private void changeOrder(object sender, EventArgs e)
-        {
-
-        }        private void search(object sender, EventArgs e)
+        private void search(object sender, EventArgs e)
         {
             // Check if search box is empty
             string searchTerm = string.IsNullOrWhiteSpace(searchName.Text) ? "ALL" : searchName.Text;
@@ -255,6 +255,62 @@ namespace PhoneHub.VIEW
             var context = DbContextFactory.CreateDbContext();
             var unitOfWork = new UnitOfWork(context);
             _productService = new ProductService(unitOfWork);
+        }
+
+        private void ConfigureModernStyles()
+        {
+            // Set form properties
+            this.BackColor = Color.FromArgb(245, 247, 250); // Light gray-blue background
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+
+            // Style DataGridView (productTB)
+            productTB.BackgroundColor = Color.White;
+            productTB.BorderStyle = BorderStyle.None;
+            productTB.DefaultCellStyle.BackColor = Color.White;
+            productTB.DefaultCellStyle.ForeColor = Color.FromArgb(51, 51, 51); // Dark gray text
+            productTB.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            productTB.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 120, 215); // Blue selection
+            productTB.DefaultCellStyle.SelectionForeColor = Color.White;
+            productTB.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 120, 215);
+            productTB.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            productTB.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            productTB.EnableHeadersVisualStyles = true;
+            productTB.RowHeadersVisible = true;
+            productTB.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Style Buttons
+            foreach (Button btn in this.Controls.OfType<Button>())
+            {
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.BackColor = Color.FromArgb(0, 120, 215); // Blue background
+                btn.ForeColor = Color.White;
+                btn.FlatAppearance.BorderSize = 0;
+                btn.Font = new Font("Segoe UI", 10);
+                btn.Cursor = Cursors.Hand;
+                btn.MouseEnter += (s, e) => btn.BackColor = Color.FromArgb(0, 100, 195); // Darker blue on hover
+                btn.MouseLeave += (s, e) => btn.BackColor = Color.FromArgb(0, 120, 215);
+            }
+
+            // Style ComboBoxes
+            foreach (ComboBox cbb in this.Controls.OfType<ComboBox>())
+            {
+                cbb.FlatStyle = FlatStyle.Flat;
+                cbb.BackColor = Color.White;
+                cbb.ForeColor = Color.FromArgb(51, 51, 51);
+                cbb.Font = new Font("Segoe UI", 10);
+                cbb.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
+
+            // Style TextBox (searchName)
+            searchName.BackColor = Color.White;
+            searchName.ForeColor = Color.FromArgb(51, 51, 51);
+            searchName.Font = new Font("Segoe UI", 10);
+            searchName.BorderStyle = BorderStyle.FixedSingle;
+
+            // Style Label (nameUserLB)
+            nameUserLB.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            nameUserLB.ForeColor = Color.FromArgb(0, 120, 215); // Blue text
         }
     }
 }

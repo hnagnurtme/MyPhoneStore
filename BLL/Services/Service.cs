@@ -14,7 +14,8 @@ namespace PhoneHub.BLL.Services
         public Service(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-        }        public IEnumerable<T> GetAll()
+        }        
+        public IEnumerable<T> GetAll()
         {
             try
             {
@@ -87,6 +88,27 @@ namespace PhoneHub.BLL.Services
                 // Lấy inner exception nếu có
                 var innerException = ex.InnerException ?? ex;
                 throw new Exception($"Error deleting entity: {innerException.Message}", innerException);
+            }
+        }
+
+        public void SoftDelete(int id)
+        {
+            try
+            {
+                var entity = GetById(id);
+                if (entity == null)
+                    throw new Exception($"Entity with ID {id} not found.");
+                var property = typeof(T).GetProperty("IsDeleted");
+                if (property != null && property.CanWrite)
+                {
+                    property.SetValue(entity, true);
+                    Update(entity);
+                }
+            }
+            catch (Exception ex)
+            {
+                var innerException = ex.InnerException ?? ex;
+                throw new Exception($"Error soft deleting entity: {innerException.Message}", innerException);
             }
         }
     }

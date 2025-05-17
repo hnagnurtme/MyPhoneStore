@@ -41,10 +41,8 @@ namespace PhoneHub
             passwordTB = new TextBox();
             emailTB = new TextBox();
             registerBT = new Button();
-            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -68,9 +66,10 @@ namespace PhoneHub
             groupBox1.Controls.Add(passwordTB);
             groupBox1.Controls.Add(emailTB);
             groupBox1.Controls.Add(registerBT);
-            groupBox1.Location = new Point(67, 160);
+            groupBox1.Location = new Point(71, 86);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(317, 392);
+            groupBox1.Padding = new Padding(0);
+            groupBox1.Size = new Size(317, 425);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             // 
@@ -78,7 +77,7 @@ namespace PhoneHub
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label7.Location = new Point(21, 228);
+            label7.Location = new Point(18, 225);
             label7.Name = "label7";
             label7.Size = new Size(68, 17);
             label7.TabIndex = 11;
@@ -88,7 +87,7 @@ namespace PhoneHub
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label5.Location = new Point(21, 134);
+            label5.Location = new Point(18, 131);
             label5.Name = "label5";
             label5.Size = new Size(43, 17);
             label5.TabIndex = 9;
@@ -99,7 +98,7 @@ namespace PhoneHub
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.DarkBlue;
-            label4.Location = new Point(84, 69);
+            label4.Location = new Point(81, 66);
             label4.Name = "label4";
             label4.Size = new Size(117, 20);
             label4.TabIndex = 8;
@@ -110,7 +109,7 @@ namespace PhoneHub
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(22, 69);
+            label3.Location = new Point(19, 66);
             label3.Name = "label3";
             label3.Size = new Size(56, 17);
             label3.TabIndex = 7;
@@ -121,7 +120,7 @@ namespace PhoneHub
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(22, 51);
+            label2.Location = new Point(19, 48);
             label2.Name = "label2";
             label2.Size = new Size(223, 17);
             label2.TabIndex = 6;
@@ -132,7 +131,7 @@ namespace PhoneHub
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkBlue;
-            label1.Location = new Point(21, 14);
+            label1.Location = new Point(18, 11);
             label1.Name = "label1";
             label1.Size = new Size(79, 25);
             label1.TabIndex = 5;
@@ -164,22 +163,11 @@ namespace PhoneHub
             registerBT.UseVisualStyleBackColor = true;
             registerBT.Click += login;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources.anhlogo;
-            pictureBox2.Location = new Point(137, 23);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(147, 131);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 12;
-            pictureBox2.TabStop = false;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(958, 583);
-            Controls.Add(pictureBox2);
             Controls.Add(groupBox1);
             Controls.Add(pictureBox1);
             Name = "Login";
@@ -188,7 +176,6 @@ namespace PhoneHub
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -204,6 +191,5 @@ namespace PhoneHub
         private TextBox passwordTB;
         private TextBox emailTB;
         private Button registerBT;
-        private PictureBox pictureBox2;
     }
 }

@@ -30,7 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             bookingView = new DataGridView();
-            userIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             productIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             bookingDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             deliveryDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -52,21 +51,13 @@
             // 
             bookingView.AutoGenerateColumns = false;
             bookingView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            bookingView.Columns.AddRange(new DataGridViewColumn[] { userIdDataGridViewTextBoxColumn, productIdDataGridViewTextBoxColumn, bookingDateDataGridViewTextBoxColumn, deliveryDateDataGridViewTextBoxColumn, totalPriceDataGridViewTextBoxColumn, shippingAddressDataGridViewTextBoxColumn, notesDataGridViewTextBoxColumn });
+            bookingView.Columns.AddRange(new DataGridViewColumn[] { productIdDataGridViewTextBoxColumn, bookingDateDataGridViewTextBoxColumn, deliveryDateDataGridViewTextBoxColumn, totalPriceDataGridViewTextBoxColumn, shippingAddressDataGridViewTextBoxColumn, notesDataGridViewTextBoxColumn });
             bookingView.DataSource = bookingBindingSource;
             bookingView.Location = new Point(12, 68);
             bookingView.Name = "bookingView";
             bookingView.RowHeadersWidth = 51;
-            bookingView.Size = new Size(916, 370);
+            bookingView.Size = new Size(1083, 370);
             bookingView.TabIndex = 0;
-            // 
-            // userIdDataGridViewTextBoxColumn
-            // 
-            userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
-            userIdDataGridViewTextBoxColumn.HeaderText = "UserId";
-            userIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
-            userIdDataGridViewTextBoxColumn.Width = 125;
             // 
             // productIdDataGridViewTextBoxColumn
             // 
@@ -128,7 +119,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(12, 6);
             panel1.Name = "panel1";
-            panel1.Size = new Size(916, 56);
+            panel1.Size = new Size(1083, 56);
             panel1.TabIndex = 2;
             // 
             // toatlRevue
@@ -181,10 +172,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(942, 450);
+            ClientSize = new Size(1107, 450);
             Controls.Add(panel1);
             Controls.Add(bookingView);
             Name = "Orders";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Orders";
             ((System.ComponentModel.ISupportInitialize)bookingView).EndInit();
             ((System.ComponentModel.ISupportInitialize)bookingBindingSource).EndInit();
@@ -196,18 +188,18 @@
         #endregion
 
         private DataGridView bookingView;
-        private DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn bookingDateDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn deliveryDateDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn shippingAddressDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
         private BindingSource bookingBindingSource;
         private Panel panel1;
         private Label totalOrders;
         private Label label1;
         private Label toatlRevue;
         private Label tong;
+        private DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn bookingDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Product;
+        private DataGridViewTextBoxColumn deliveryDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn shippingAddressDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
     }
 }

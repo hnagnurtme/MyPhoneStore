@@ -243,6 +243,7 @@
             Controls.Add(panel1);
             Controls.Add(productPic);
             Name = "BookingDetail";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Booking";
             ((System.ComponentModel.ISupportInitialize)productPic).EndInit();
             panel1.ResumeLayout(false);

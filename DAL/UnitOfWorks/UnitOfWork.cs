@@ -17,7 +17,8 @@ namespace PhoneHub.DAL.UnitOfWorks
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _repositories = new Dictionary<Type, object>();
-        }        public IRepository<User> UserRepository => GetRepository<User>();
+        }        
+        public IRepository<User> UserRepository => GetRepository<User>();
         public IRepository<Role> RoleRepository => GetRepository<Role>();
         public IRepository<Product> ProductRepository => GetRepository<Product>();
         public IRepository<Booking> BookingRepository => GetRepository<Booking>();

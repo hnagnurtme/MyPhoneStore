@@ -25,7 +25,8 @@ namespace PhoneHub.VIEW
             var context = DbContextFactory.CreateDbContext();
             var unitOfWork = new UnitOfWork(context);
             _userService = new UserService(unitOfWork);
-            Style.ApplyModernStyleToControl(this);
+            Style.ApplyStyleToFormControls(this);
+            this.BackColor = ColorTranslator.FromHtml("#000842");
         }
 
         private void register(object sender, EventArgs e)
@@ -124,6 +125,8 @@ namespace PhoneHub.VIEW
         {
             OpenLoginForm();
         }
+
+       
     }
 }
 

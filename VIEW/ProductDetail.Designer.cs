@@ -39,16 +39,18 @@
             label2 = new Label();
             label3 = new Label();
             button2 = new Button();
+            panel2 = new Panel();
             ((System.ComponentModel.ISupportInitialize)productPic).BeginInit();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // productPic
             // 
             productPic.Image = Properties.Resources.anhdt1;
-            productPic.Location = new Point(358, 0);
+            productPic.Location = new Point(362, 26);
             productPic.Name = "productPic";
-            productPic.Size = new Size(298, 463);
+            productPic.Size = new Size(298, 423);
             productPic.SizeMode = PictureBoxSizeMode.StretchImage;
             productPic.TabIndex = 0;
             productPic.TabStop = false;
@@ -56,7 +58,7 @@
             // nameLB
             // 
             nameLB.AutoSize = true;
-            nameLB.Location = new Point(15, 47);
+            nameLB.Location = new Point(6, 40);
             nameLB.MaximumSize = new Size(300, 0);
             nameLB.MinimumSize = new Size(300, 50);
             nameLB.Name = "nameLB";
@@ -67,7 +69,7 @@
             // descriprionLB
             // 
             descriprionLB.AutoSize = true;
-            descriprionLB.Location = new Point(15, 144);
+            descriprionLB.Location = new Point(6, 125);
             descriprionLB.MaximumSize = new Size(300, 100);
             descriprionLB.MinimumSize = new Size(300, 100);
             descriprionLB.Name = "descriprionLB";
@@ -79,7 +81,7 @@
             // 
             button1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.DarkBlue;
-            button1.Location = new Point(83, 362);
+            button1.Location = new Point(74, 355);
             button1.Name = "button1";
             button1.Size = new Size(178, 52);
             button1.TabIndex = 4;
@@ -113,7 +115,7 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(stockLB);
             panel1.Controls.Add(priceLB);
-            panel1.Location = new Point(15, 258);
+            panel1.Location = new Point(6, 251);
             panel1.Name = "panel1";
             panel1.Size = new Size(312, 87);
             panel1.TabIndex = 3;
@@ -147,7 +149,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DarkBlue;
-            label3.Location = new Point(15, 109);
+            label3.Location = new Point(6, 102);
             label3.Name = "label3";
             label3.Size = new Size(60, 23);
             label3.TabIndex = 5;
@@ -157,7 +159,7 @@
             // 
             button2.BackColor = Color.Brown;
             button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(10, 10);
+            button2.Location = new Point(1, 3);
             button2.Name = "button2";
             button2.Size = new Size(67, 27);
             button2.TabIndex = 6;
@@ -165,17 +167,25 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += backClicked;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(button2);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(button1);
+            panel2.Controls.Add(panel1);
+            panel2.Controls.Add(descriprionLB);
+            panel2.Controls.Add(nameLB);
+            panel2.Location = new Point(27, 26);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(320, 432);
+            panel2.TabIndex = 7;
+            // 
             // ProductDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(672, 461);
-            Controls.Add(button2);
-            Controls.Add(label3);
-            Controls.Add(button1);
-            Controls.Add(panel1);
-            Controls.Add(descriprionLB);
-            Controls.Add(nameLB);
+            Controls.Add(panel2);
             Controls.Add(productPic);
             Name = "ProductDetail";
             StartPosition = FormStartPosition.CenterScreen;
@@ -183,8 +193,9 @@
             ((System.ComponentModel.ISupportInitialize)productPic).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -200,5 +211,6 @@
         private Label label1;
         private Label label2;
         private Button button2;
+        private Panel panel2;
     }
 }

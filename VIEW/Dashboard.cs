@@ -35,23 +35,22 @@ namespace PhoneHub.VIEW
             _userService = new UserService(unitOfWork);
             _user = user;
             LoadGUI();
+            Style.ApplyStyleToFormControls(this);
         }
         private void LoadGUI()
         {
             try
             {
-                int allUsers = _userService.GetAll().Count(u => !u.IsDeleted && u.IsActive);
+                long allUsers = _userService.CountTotalCustomer();
                 customerTB.Text = allUsers.ToString();
 
-                int allProducts = _productService.GetAll().Count(p => !p.IsDeleted && p.IsAvailable);
+                long allProducts = _productService.countTotalProduct();
                 productTB.Text = allProducts.ToString();
 
-                int allBookings = _bookingService.GetAll().Count(b => !b.IsDeleted && b.Status != "Cancelled");
+                long allBookings = _bookingService.countTotalBooking();
                 bookingTB.Text = allBookings.ToString();
 
-                decimal allRevenue = _bookingService.GetAll()
-                    .Where(b => !b.IsDeleted)
-                    .Sum(b => b.TotalPrice);
+                decimal allRevenue = _bookingService.countToatlAmount();
                 doanhthuTB.Text = allRevenue.ToString("C");
             }
             catch (Exception ex)
@@ -64,29 +63,19 @@ namespace PhoneHub.VIEW
         private void showCustomer(object sender, EventArgs e)
         {
             UserDashboard userDashboard = new UserDashboard(_user);
-            userDashboard.Show();
+            userDashboard.ShowDialog();
         }
 
         private void showOrders(object sender, EventArgs e)
         {
             Orders orders = new Orders(_user);
-            orders.Show();
+            orders.ShowDialog();
         }
 
         private void showProducts(object sender, EventArgs e)
         {
             HomePage homePage = new HomePage(_user);
-            homePage.Show();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            homePage.ShowDialog();
         }
     }
 }

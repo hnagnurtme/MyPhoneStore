@@ -30,6 +30,7 @@
         {
             productPic = new PictureBox();
             panel1 = new Panel();
+            deleteBT = new Button();
             imageTB = new TextBox();
             label7 = new Label();
             confirmBT = new Button();
@@ -45,7 +46,6 @@
             label2 = new Label();
             nameProductTB = new TextBox();
             label1 = new Label();
-            deleteBT = new Button();
             ((System.ComponentModel.ISupportInitialize)productPic).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -82,6 +82,19 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(356, 429);
             panel1.TabIndex = 2;
+            // 
+            // deleteBT
+            // 
+            deleteBT.BackColor = Color.Crimson;
+            deleteBT.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            deleteBT.ForeColor = SystemColors.ControlLightLight;
+            deleteBT.Location = new Point(13, 372);
+            deleteBT.Name = "deleteBT";
+            deleteBT.Size = new Size(145, 43);
+            deleteBT.TabIndex = 15;
+            deleteBT.Text = "Xoa san pham";
+            deleteBT.UseVisualStyleBackColor = false;
+            deleteBT.Click += delete;
             // 
             // imageTB
             // 
@@ -208,19 +221,6 @@
             label1.TabIndex = 0;
             label1.Text = "Ten san pham";
             // 
-            // deleteBT
-            // 
-            deleteBT.BackColor = Color.Crimson;
-            deleteBT.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            deleteBT.ForeColor = SystemColors.ControlLightLight;
-            deleteBT.Location = new Point(13, 372);
-            deleteBT.Name = "deleteBT";
-            deleteBT.Size = new Size(145, 43);
-            deleteBT.TabIndex = 15;
-            deleteBT.Text = "Xoa san pham";
-            deleteBT.UseVisualStyleBackColor = false;
-            deleteBT.Click += delete;
-            // 
             // CreateProduct
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -229,6 +229,7 @@
             Controls.Add(panel1);
             Controls.Add(productPic);
             Name = "CreateProduct";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Product";
             ((System.ComponentModel.ISupportInitialize)productPic).EndInit();
             panel1.ResumeLayout(false);

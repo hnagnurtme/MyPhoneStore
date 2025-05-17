@@ -12,5 +12,8 @@ namespace PhoneHub.BLL.Services
         void Create(T entity);
         void Update(T entity);
         void Delete(int id);
+
+
+        void SoftDelete(int id);
     }
 }

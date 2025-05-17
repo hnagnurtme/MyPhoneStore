@@ -34,10 +34,8 @@
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            RoleId = new DataGridViewTextBoxColumn();
             isActiveDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
             createdAtDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            IsActive = new DataGridViewCheckBoxColumn();
             userBindingSource = new BindingSource(components);
             panel1 = new Panel();
             totalUser = new Label();
@@ -50,14 +48,16 @@
             // userView
             // 
             userView.AutoGenerateColumns = false;
+            userView.BorderStyle = BorderStyle.Fixed3D;
             userView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            userView.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, RoleId, isActiveDataGridViewCheckBoxColumn, createdAtDataGridViewTextBoxColumn, IsActive });
+            userView.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, isActiveDataGridViewCheckBoxColumn, createdAtDataGridViewTextBoxColumn });
             userView.DataSource = userBindingSource;
             userView.Location = new Point(17, 86);
             userView.Name = "userView";
             userView.RowHeadersWidth = 51;
-            userView.Size = new Size(765, 335);
+            userView.Size = new Size(1028, 335);
             userView.TabIndex = 0;
+            userView.DoubleClick += viewUserDetail;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -91,14 +91,6 @@
             addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             addressDataGridViewTextBoxColumn.Width = 125;
             // 
-            // RoleId
-            // 
-            RoleId.DataPropertyName = "RoleId";
-            RoleId.HeaderText = "RoleId";
-            RoleId.MinimumWidth = 6;
-            RoleId.Name = "RoleId";
-            RoleId.Width = 125;
-            // 
             // isActiveDataGridViewCheckBoxColumn
             // 
             isActiveDataGridViewCheckBoxColumn.DataPropertyName = "IsActive";
@@ -115,14 +107,6 @@
             createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
             createdAtDataGridViewTextBoxColumn.Width = 125;
             // 
-            // IsActive
-            // 
-            IsActive.DataPropertyName = "IsActive";
-            IsActive.HeaderText = "IsActive";
-            IsActive.MinimumWidth = 6;
-            IsActive.Name = "IsActive";
-            IsActive.Width = 125;
-            // 
             // userBindingSource
             // 
             userBindingSource.DataSource = typeof(Models.User);
@@ -133,7 +117,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(17, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(765, 56);
+            panel1.Size = new Size(1028, 56);
             panel1.TabIndex = 1;
             // 
             // totalUser
@@ -163,10 +147,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1050, 450);
             Controls.Add(panel1);
             Controls.Add(userView);
             Name = "UserDashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "UserDashboard";
             ((System.ComponentModel.ISupportInitialize)userView).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
@@ -189,6 +174,5 @@
         private DataGridViewTextBoxColumn RoleId;
         private DataGridViewCheckBoxColumn isActiveDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn createdAtDataGridViewTextBoxColumn;
-        private DataGridViewCheckBoxColumn IsActive;
     }
 }

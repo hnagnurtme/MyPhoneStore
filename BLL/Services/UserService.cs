@@ -19,13 +19,21 @@ namespace PhoneHub.BLL.Services
         bool RegisterUser(string username, string password, string email, string address, string phone);
 
         IEnumerable<User> GetAllUserAndRole();
+
+        long getTotalBooking(int userId);
+
+        float getTotalAmount(int userId);
+
+        long CountTotalCustomer();
+
+        IEnumerable<User> GetAllCustomer();
     }
 
     public class UserService : Service<User>, IUserService
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public UserService(IUnitOfWork unitOfWork) : base(unitOfWork) 
+        public UserService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
@@ -141,5 +149,30 @@ namespace PhoneHub.BLL.Services
         {
             return GetAllUserAndRole();
         }
+
+        public long getTotalBooking(int userId)
+        {
+            var bookings = _unitOfWork.BookingRepository.GetAll().Where(b => b.UserId == userId).ToList();
+            return bookings.Count;
+        }
+        public float getTotalAmount(int userId)
+        {
+            var bookings = _unitOfWork.BookingRepository.GetAll().Where(b => b.UserId == userId).ToList();
+            return (float)bookings.Sum(b => b.TotalPrice);
+        }
+
+        public long CountTotalCustomer()
+        {
+            var users = _unitOfWork.UserRepository.GetAll().Where(u => u.RoleId == 2 && !u.IsDeleted).ToList();
+            return users.Count;
+        }
+
+        IEnumerable<User> IUserService.GetAllCustomer()
+        {
+            var users = _unitOfWork.UserRepository.GetAll().Where(u => u.RoleId == 2 && !u.IsDeleted).ToList();
+            return users;
+        }
+
+        
     }
 }

@@ -20,7 +20,9 @@ namespace PhoneHub.DAL.Repositories
 
         public IEnumerable<TEntity> GetAll()
         {
-            return _dbSet.ToList();
+            return _dbSet
+                .Where(e => !EF.Property<bool>(e, "IsDeleted"))
+                .ToList();
         }
 
         public TEntity GetById(int id)

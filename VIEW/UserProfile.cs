@@ -27,7 +27,8 @@ namespace PhoneHub.VIEW
             _userService = new UserService(unitOfWork);
             _user = user;
             LoadGUI();
-            Style.ApplyModernStyleToControl(this);
+            Style.ApplyStyleToFormControls(this);
+
         }
 
         private void updateProfile(object sender, EventArgs e)

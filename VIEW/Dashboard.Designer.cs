@@ -58,9 +58,9 @@
             panel1.Controls.Add(productTB);
             panel1.Controls.Add(customerTB);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(8, 9);
+            panel1.Location = new Point(12, 75);
             panel1.Name = "panel1";
-            panel1.Size = new Size(407, 534);
+            panel1.Size = new Size(407, 428);
             panel1.TabIndex = 0;
             // 
             // label5
@@ -77,7 +77,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.anhlogo;
-            pictureBox1.Location = new Point(49, 3);
+            pictureBox1.Location = new Point(32, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(109, 104);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -88,7 +88,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.MediumTurquoise;
+            label4.ForeColor = Color.DarkBlue;
             label4.Location = new Point(12, 205);
             label4.Name = "label4";
             label4.Size = new Size(91, 23);
@@ -100,7 +100,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.MediumTurquoise;
+            label3.ForeColor = Color.DarkBlue;
             label3.Location = new Point(12, 277);
             label3.Name = "label3";
             label3.Size = new Size(89, 23);
@@ -112,7 +112,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.MediumTurquoise;
+            label2.ForeColor = Color.DarkBlue;
             label2.Location = new Point(12, 342);
             label2.Name = "label2";
             label2.Size = new Size(96, 23);
@@ -150,9 +150,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = SystemColors.ControlDark;
             label1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.AliceBlue;
+            label1.ForeColor = Color.DarkBlue;
             label1.Location = new Point(12, 130);
             label1.Name = "label1";
             label1.Size = new Size(113, 23);
@@ -183,6 +182,7 @@
             Controls.Add(pictureBox2);
             Controls.Add(panel1);
             Name = "Dashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

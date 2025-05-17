@@ -33,6 +33,7 @@ namespace PhoneHub.VIEW
             _bookingService = new BookingService(unitOfWork, _productService);
             _user = user;
             LoadGUI();
+            Style.ApplyStyleToFormControls(this);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -52,18 +53,22 @@ namespace PhoneHub.VIEW
                 bookingBindingSource.DataSource = _bookingService.GetAll().ToList();
                 bookingView.DataSource = bookingBindingSource;
 
-                toatlRevue.Text = _bookingService.GetAll()
-                    .Where(b => !b.IsDeleted)
-                    .Sum(b => b.TotalPrice).ToString("C");
+                toatlRevue.Text = _bookingService.countToatlAmount().ToString("C");
 
-                totalOrders.Text = _bookingService.GetAll()
-                    .Count(b => !b.IsDeleted && b.Status != "Cancelled").ToString();
+                totalOrders.Text = _bookingService.countTotalBooking().ToString();
+
+                bookingView.Columns[0].Width = 100;
+                bookingView.Columns[1].Width = 200;
+                bookingView.Columns[2].Width = 200;
+                bookingView.Columns[3].Width = 200;
+                bookingView.Columns[4].Width = 200;
+                bookingView.Columns[5].Width = 300;
+
             }
             else
             {
                 tong.Text = "Tong so tien da mua";
                 toatlRevue.Text = _bookingService.GetBookingsByUserId(_user.Id)
-                    .Where(b => !b.IsDeleted)
                     .Sum(b => b.TotalPrice).ToString("C");
 
                 bookingBindingSource.DataSource = _bookingService.GetBookingsByUserId(_user.Id).ToList();
@@ -71,10 +76,17 @@ namespace PhoneHub.VIEW
 
                 totalOrders.Text = _bookingService.GetBookingsByUserId(_user.Id).ToList()
                     .Count(b => !b.IsDeleted && b.Status != "Cancelled").ToString();
+
+                bookingView.Columns[0].Width = 100;
+                bookingView.Columns[1].Width = 200;
+                bookingView.Columns[2].Width = 200;
+                bookingView.Columns[3].Width = 200;
+                bookingView.Columns[4].Width = 200;
+                bookingView.Columns[5].Width = 300;
+
             }
             
         }
-
 
     }
 }

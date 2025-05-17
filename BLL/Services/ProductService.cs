@@ -21,6 +21,8 @@ namespace PhoneHub.BLL.Services
         int GetStockLevel(int productId);
 
         public void SoftDelete(int id);
+
+        long countTotalProduct();
     }
 
     public class ProductService : Service<Product>, IProductService
@@ -206,6 +208,12 @@ namespace PhoneHub.BLL.Services
                 var innerException = ex.InnerException ?? ex;
                 throw new Exception($"Error soft deleting product: {innerException.Message}", innerException);
             }
+        }
+
+        public long countTotalProduct()
+        {
+            var products = _unitOfWork.Repository<Product>().GetAll().Where(p => !p.IsDeleted && p.IsAvailable);
+            return products.Count();
         }
     }
 }

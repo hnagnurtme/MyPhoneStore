@@ -22,6 +22,8 @@ namespace PhoneHub.VIEW
             _product = product;
             _user = user;
             ProductDetail_Load();
+
+            Style.ApplyStyleToFormControls(this);
         }
 
         private void ProductDetail_Load()

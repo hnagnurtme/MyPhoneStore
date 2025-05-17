@@ -1,6 +1,6 @@
 ﻿namespace PhoneHub.VIEW
 {
-    partial class UserProfile
+    partial class UserView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
             panel1 = new Panel();
             addressTB = new TextBox();
             label4 = new Label();
@@ -38,31 +37,21 @@
             label2 = new Label();
             userNameTB = new TextBox();
             label1 = new Label();
-            sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
-            change = new Button();
+            pictureBox1 = new PictureBox();
             panel2 = new Panel();
-            newPassCFTB = new TextBox();
-            label7 = new Label();
-            newPassTB = new TextBox();
-            label6 = new Label();
-            oldPassTB = new TextBox();
-            oldPass = new Label();
+            tongsotienLb = new Button();
+            tongsotien = new Button();
+            sodonhang = new Button();
+            sodonhangLB = new Button();
+            label5 = new Label();
+            button2 = new Button();
+            button3 = new Button();
             panel3 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.anhdt2;
-            pictureBox1.Location = new Point(25, 37);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(361, 368);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -74,10 +63,10 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(userNameTB);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(405, 37);
+            panel1.Location = new Point(382, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(397, 195);
-            panel1.TabIndex = 1;
+            panel1.TabIndex = 2;
             // 
             // addressTB
             // 
@@ -89,9 +78,8 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = Color.DarkBlue;
             label4.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ButtonHighlight;
+            label4.ForeColor = Color.DarkBlue;
             label4.Location = new Point(16, 143);
             label4.Name = "label4";
             label4.Size = new Size(73, 23);
@@ -108,9 +96,8 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.DarkBlue;
             label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ButtonHighlight;
+            label3.ForeColor = Color.DarkBlue;
             label3.Location = new Point(16, 100);
             label3.Name = "label3";
             label3.Size = new Size(48, 23);
@@ -127,9 +114,8 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.DarkBlue;
             label2.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.ForeColor = Color.DarkBlue;
             label2.Location = new Point(16, 59);
             label2.Name = "label2";
             label2.Size = new Size(58, 23);
@@ -146,119 +132,123 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.DarkBlue;
             label1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.ForeColor = Color.DarkBlue;
             label1.Location = new Point(16, 15);
             label1.Name = "label1";
             label1.Size = new Size(92, 23);
             label1.TabIndex = 0;
             label1.Text = "Ho va ten";
             // 
-            // change
+            // pictureBox1
             // 
-            change.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            change.Location = new Point(12, 2);
-            change.Name = "change";
-            change.Size = new Size(143, 29);
-            change.TabIndex = 2;
-            change.Text = "Luu thay doi";
-            change.UseVisualStyleBackColor = true;
-            change.Click += updateProfile;
+            pictureBox1.Image = Properties.Resources.anhdt2;
+            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(361, 368);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
             // 
             // panel2
             // 
-            panel2.Controls.Add(newPassCFTB);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(newPassTB);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(oldPassTB);
-            panel2.Controls.Add(oldPass);
-            panel2.Location = new Point(411, 298);
+            panel2.Controls.Add(tongsotienLb);
+            panel2.Controls.Add(tongsotien);
+            panel2.Controls.Add(sodonhang);
+            panel2.Controls.Add(sodonhangLB);
+            panel2.Controls.Add(label5);
+            panel2.Location = new Point(382, 213);
             panel2.Name = "panel2";
-            panel2.Size = new Size(391, 128);
-            panel2.TabIndex = 3;
+            panel2.Size = new Size(398, 108);
+            panel2.TabIndex = 4;
             // 
-            // newPassCFTB
+            // tongsotienLb
             // 
-            newPassCFTB.Location = new Point(178, 83);
-            newPassCFTB.Name = "newPassCFTB";
-            newPassCFTB.Size = new Size(195, 27);
-            newPassCFTB.TabIndex = 12;
+            tongsotienLb.Location = new Point(235, 3);
+            tongsotienLb.Name = "tongsotienLb";
+            tongsotienLb.Size = new Size(144, 47);
+            tongsotienLb.TabIndex = 4;
+            tongsotienLb.Text = "Tổng số tiền";
+            tongsotienLb.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // tongsotien
             // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.DarkBlue;
-            label7.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = SystemColors.ButtonHighlight;
-            label7.Location = new Point(10, 84);
-            label7.Name = "label7";
-            label7.Size = new Size(162, 23);
-            label7.TabIndex = 11;
-            label7.Text = "Nhap lai mat khau";
+            tongsotien.Location = new Point(235, 56);
+            tongsotien.Name = "tongsotien";
+            tongsotien.Size = new Size(144, 47);
+            tongsotien.TabIndex = 3;
+            tongsotien.UseVisualStyleBackColor = true;
             // 
-            // newPassTB
+            // sodonhang
             // 
-            newPassTB.Location = new Point(142, 50);
-            newPassTB.Name = "newPassTB";
-            newPassTB.Size = new Size(231, 27);
-            newPassTB.TabIndex = 10;
+            sodonhang.Location = new Point(3, 56);
+            sodonhang.Name = "sodonhang";
+            sodonhang.Size = new Size(144, 47);
+            sodonhang.TabIndex = 2;
+            sodonhang.UseVisualStyleBackColor = true;
+            sodonhang.Click += sodonhang_Click;
             // 
-            // label6
+            // sodonhangLB
             // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.DarkBlue;
-            label6.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = SystemColors.ButtonHighlight;
-            label6.Location = new Point(10, 52);
-            label6.Name = "label6";
-            label6.Size = new Size(126, 23);
-            label6.TabIndex = 9;
-            label6.Text = "Mat khau moi";
+            sodonhangLB.Location = new Point(3, 3);
+            sodonhangLB.Name = "sodonhangLB";
+            sodonhangLB.Size = new Size(144, 47);
+            sodonhangLB.TabIndex = 1;
+            sodonhangLB.Text = "Số đơn hàng";
+            sodonhangLB.UseVisualStyleBackColor = true;
             // 
-            // oldPassTB
+            // label5
             // 
-            oldPassTB.Location = new Point(108, 17);
-            oldPassTB.Name = "oldPassTB";
-            oldPassTB.Size = new Size(265, 27);
-            oldPassTB.TabIndex = 8;
+            label5.AutoSize = true;
+            label5.Location = new Point(15, 13);
+            label5.Name = "label5";
+            label5.Size = new Size(0, 20);
+            label5.TabIndex = 0;
             // 
-            // oldPass
+            // button2
             // 
-            oldPass.AutoSize = true;
-            oldPass.BackColor = Color.DarkBlue;
-            oldPass.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            oldPass.ForeColor = SystemColors.ButtonHighlight;
-            oldPass.Location = new Point(10, 18);
-            oldPass.Name = "oldPass";
-            oldPass.Size = new Size(91, 23);
-            oldPass.TabIndex = 3;
-            oldPass.Text = "Mat khau";
+            button2.Location = new Point(43, 11);
+            button2.Name = "button2";
+            button2.Size = new Size(137, 43);
+            button2.TabIndex = 5;
+            button2.Text = "Delete";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += deleteUser;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(212, 11);
+            button3.Name = "button3";
+            button3.Size = new Size(137, 43);
+            button3.TabIndex = 6;
+            button3.Text = "Close";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += close;
             // 
             // panel3
             // 
-            panel3.Controls.Add(change);
-            panel3.Location = new Point(644, 247);
+            panel3.Controls.Add(button3);
+            panel3.Controls.Add(button2);
+            panel3.Location = new Point(386, 326);
             panel3.Name = "panel3";
-            panel3.Size = new Size(158, 34);
-            panel3.TabIndex = 4;
+            panel3.Size = new Size(395, 59);
+            panel3.TabIndex = 7;
             // 
-            // UserProfile
+            // UserView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(814, 438);
+            ClientSize = new Size(790, 393);
             Controls.Add(panel3);
             Controls.Add(panel2);
-            Controls.Add(panel1);
             Controls.Add(pictureBox1);
-            Name = "UserProfile";
+            Controls.Add(panel1);
+            Name = "UserView";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "UserProfile";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Text = "UserView";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
@@ -267,7 +257,6 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
         private Panel panel1;
         private TextBox addressTB;
         private Label label4;
@@ -277,15 +266,15 @@
         private Label label2;
         private TextBox userNameTB;
         private Label label1;
-        private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
-        private Button change;
+        private PictureBox pictureBox1;
         private Panel panel2;
-        private TextBox newPassTB;
-        private Label label6;
-        private TextBox oldPassTB;
-        private Label oldPass;
-        private TextBox newPassCFTB;
-        private Label label7;
+        private Button tongsotienLb;
+        private Button tongsotien;
+        private Button sodonhang;
+        private Button sodonhangLB;
+        private Label label5;
+        private Button button2;
+        private Button button3;
         private Panel panel3;
     }
 }

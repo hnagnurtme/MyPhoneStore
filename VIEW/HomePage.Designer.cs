@@ -53,17 +53,19 @@
             button2 = new Button();
             sortByCBB = new ComboBox();
             pictureBox1 = new PictureBox();
+            panel1 = new Panel();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productTB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)entityBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // button1
             // 
             button1.AccessibleName = "profileBT";
-            button1.Location = new Point(847, 12);
+            button1.Location = new Point(827, 6);
             button1.Name = "button1";
             button1.Size = new Size(83, 60);
             button1.TabIndex = 0;
@@ -105,9 +107,9 @@
             productTB.Name = "productTB";
             productTB.ReadOnly = true;
             productTB.RowHeadersWidth = 51;
-            productTB.Size = new Size(906, 365);
+            productTB.Size = new Size(922, 365);
             productTB.TabIndex = 2;
-            productTB.Click += showDetails;
+            productTB.DoubleClick += showDetails;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -183,7 +185,7 @@
             // searchName
             // 
             searchName.AccessibleName = "searchTB";
-            searchName.Location = new Point(100, 97);
+            searchName.Location = new Point(80, 91);
             searchName.Name = "searchName";
             searchName.Size = new Size(234, 27);
             searchName.TabIndex = 3;
@@ -193,7 +195,7 @@
             sortOrderCBB.AccessibleName = "sortOrderCBB";
             sortOrderCBB.FormattingEnabled = true;
             sortOrderCBB.Items.AddRange(new object[] { "ASC", "DESC" });
-            sortOrderCBB.Location = new Point(697, 91);
+            sortOrderCBB.Location = new Point(677, 85);
             sortOrderCBB.Name = "sortOrderCBB";
             sortOrderCBB.Size = new Size(128, 28);
             sortOrderCBB.TabIndex = 4;
@@ -201,7 +203,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(847, 90);
+            button5.Location = new Point(827, 84);
             button5.Name = "button5";
             button5.Size = new Size(83, 28);
             button5.TabIndex = 5;
@@ -215,7 +217,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkBlue;
-            label1.Location = new Point(125, 38);
+            label1.Location = new Point(105, 32);
             label1.Name = "label1";
             label1.Size = new Size(275, 26);
             label1.TabIndex = 6;
@@ -226,7 +228,7 @@
             nameUserLB.AutoSize = true;
             nameUserLB.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             nameUserLB.ForeColor = Color.SeaGreen;
-            nameUserLB.Location = new Point(411, 38);
+            nameUserLB.Location = new Point(408, 32);
             nameUserLB.Name = "nameUserLB";
             nameUserLB.Size = new Size(61, 23);
             nameUserLB.TabIndex = 7;
@@ -235,7 +237,7 @@
             // bookingBT
             // 
             bookingBT.AccessibleName = "profileBT";
-            bookingBT.Location = new Point(697, 12);
+            bookingBT.Location = new Point(677, 6);
             bookingBT.Name = "bookingBT";
             bookingBT.Size = new Size(128, 60);
             bookingBT.TabIndex = 8;
@@ -246,7 +248,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(24, 105);
+            label2.Location = new Point(4, 99);
             label2.Name = "label2";
             label2.Size = new Size(70, 20);
             label2.TabIndex = 9;
@@ -254,7 +256,7 @@
             // 
             // searchBT
             // 
-            searchBT.Location = new Point(356, 93);
+            searchBT.Location = new Point(336, 87);
             searchBT.Name = "searchBT";
             searchBT.Size = new Size(116, 31);
             searchBT.TabIndex = 10;
@@ -264,7 +266,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(487, 91);
+            button2.Location = new Point(467, 85);
             button2.Name = "button2";
             button2.Size = new Size(89, 33);
             button2.TabIndex = 11;
@@ -276,7 +278,7 @@
             // 
             sortByCBB.FormattingEnabled = true;
             sortByCBB.Items.AddRange(new object[] { "PRICE", "STOCK" });
-            sortByCBB.Location = new Point(595, 91);
+            sortByCBB.Location = new Point(575, 85);
             sortByCBB.Name = "sortByCBB";
             sortByCBB.Size = new Size(87, 28);
             sortByCBB.TabIndex = 12;
@@ -285,30 +287,38 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.anhlogo;
-            pictureBox1.Location = new Point(38, 12);
+            pictureBox1.Location = new Point(18, 6);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(81, 79);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 13;
             pictureBox1.TabStop = false;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(sortByCBB);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(searchBT);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(bookingBT);
+            panel1.Controls.Add(nameUserLB);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(button5);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(sortOrderCBB);
+            panel1.Controls.Add(searchName);
+            panel1.Location = new Point(20, 6);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(927, 124);
+            panel1.TabIndex = 14;
+            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(958, 583);
-            Controls.Add(pictureBox1);
-            Controls.Add(sortByCBB);
-            Controls.Add(button2);
-            Controls.Add(searchBT);
-            Controls.Add(label2);
-            Controls.Add(bookingBT);
-            Controls.Add(nameUserLB);
-            Controls.Add(label1);
-            Controls.Add(button5);
-            Controls.Add(button1);
-            Controls.Add(sortOrderCBB);
-            Controls.Add(searchName);
+            Controls.Add(panel1);
             Controls.Add(productTB);
             Controls.Add(panel2);
             Name = "HomePage";
@@ -319,8 +329,9 @@
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)entityBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -348,5 +359,6 @@
         private ComboBox sortByCBB;
         private Button addBT;
         private PictureBox pictureBox1;
+        private Panel panel1;
     }
 }

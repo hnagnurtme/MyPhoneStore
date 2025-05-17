@@ -80,9 +80,9 @@
             groupBox1.Controls.Add(usernameTB);
             groupBox1.Controls.Add(emailTB);
             groupBox1.Controls.Add(registerBT);
-            groupBox1.Location = new Point(55, 43);
+            groupBox1.Location = new Point(54, 35);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(317, 513);
+            groupBox1.Size = new Size(371, 513);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             // 
@@ -90,7 +90,7 @@
             // 
             phoneTB.Location = new Point(21, 235);
             phoneTB.Name = "phoneTB";
-            phoneTB.Size = new Size(275, 27);
+            phoneTB.Size = new Size(316, 27);
             phoneTB.TabIndex = 16;
             // 
             // label10
@@ -107,7 +107,7 @@
             // 
             addressTB.Location = new Point(22, 294);
             addressTB.Name = "addressTB";
-            addressTB.Size = new Size(275, 27);
+            addressTB.Size = new Size(315, 27);
             addressTB.TabIndex = 14;
             // 
             // label9
@@ -208,35 +208,35 @@
             // 
             confirmPasswordTB.Location = new Point(22, 422);
             confirmPasswordTB.Name = "confirmPasswordTB";
-            confirmPasswordTB.Size = new Size(275, 27);
+            confirmPasswordTB.Size = new Size(315, 27);
             confirmPasswordTB.TabIndex = 2;
             // 
             // passwordTB
             // 
             passwordTB.Location = new Point(22, 353);
             passwordTB.Name = "passwordTB";
-            passwordTB.Size = new Size(275, 27);
+            passwordTB.Size = new Size(315, 27);
             passwordTB.TabIndex = 1;
             // 
             // usernameTB
             // 
             usernameTB.Location = new Point(21, 170);
             usernameTB.Name = "usernameTB";
-            usernameTB.Size = new Size(275, 27);
+            usernameTB.Size = new Size(316, 27);
             usernameTB.TabIndex = 4;
             // 
             // emailTB
             // 
             emailTB.Location = new Point(22, 111);
             emailTB.Name = "emailTB";
-            emailTB.Size = new Size(275, 27);
+            emailTB.Size = new Size(315, 27);
             emailTB.TabIndex = 0;
             // 
             // registerBT
             // 
             registerBT.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             registerBT.ForeColor = Color.DarkBlue;
-            registerBT.Location = new Point(88, 455);
+            registerBT.Location = new Point(109, 455);
             registerBT.Name = "registerBT";
             registerBT.Size = new Size(133, 36);
             registerBT.TabIndex = 3;
