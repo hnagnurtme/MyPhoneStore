@@ -99,7 +99,7 @@
             productTB.AllowUserToDeleteRows = false;
             productTB.AllowUserToOrderColumns = true;
             productTB.AutoGenerateColumns = false;
-            productTB.BackgroundColor = Color.LightCyan;
+            productTB.BackgroundColor = Color.DarkSeaGreen;
             productTB.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             productTB.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, descriptionDataGridViewTextBoxColumn, Model, IsAvailable, Brand, Price, StockQuantity });
             productTB.DataSource = productBindingSource;

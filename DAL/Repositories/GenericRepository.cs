@@ -37,7 +37,23 @@ namespace PhoneHub.DAL.Repositories
 
         public void Update(TEntity entity)
         {
-            _dbSet.Update(entity);
+            var key = _context.Model.FindEntityType(typeof(TEntity)).FindPrimaryKey().Properties.FirstOrDefault();
+            if (key == null)
+                throw new Exception("Không tìm thấy khóa chính.");
+
+            var keyValue = key.PropertyInfo.GetValue(entity);
+            var existing = _dbSet.Local.FirstOrDefault(e =>
+                key.PropertyInfo.GetValue(e).Equals(keyValue));
+
+            if (existing != null)
+            {
+                _context.Entry(existing).CurrentValues.SetValues(entity);
+            }
+            else
+            {
+                _dbSet.Attach(entity);
+                _context.Entry(entity).State = EntityState.Modified;
+            }
         }
 
         public void Delete(int id)

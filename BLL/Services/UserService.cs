@@ -26,6 +26,7 @@ namespace PhoneHub.BLL.Services
 
         long CountTotalCustomer();
 
+        public string HashPassword(string password);
         IEnumerable<User> GetAllCustomer();
     }
 
@@ -96,7 +97,7 @@ namespace PhoneHub.BLL.Services
             return true;
         }
 
-        private string HashPassword(string password)
+        public string HashPassword(string password)
         {
             using (var sha256 = SHA256.Create())
             {
@@ -173,6 +174,5 @@ namespace PhoneHub.BLL.Services
             return users;
         }
 
-        
     }
 }

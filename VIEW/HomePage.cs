@@ -44,6 +44,7 @@ namespace PhoneHub.VIEW
         private void showProfile(object sender, EventArgs e)
         {
             UserProfile userProfile = new UserProfile(_user);
+            userProfile.UpdateUserProfileEvent += () => ShowUserName();
             userProfile.ShowDialog();
         }       
         private void sortBT(object sender, EventArgs e)

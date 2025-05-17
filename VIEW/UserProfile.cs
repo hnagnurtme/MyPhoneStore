@@ -19,6 +19,10 @@ namespace PhoneHub.VIEW
         private readonly IUserService _userService;
 
         private readonly User _user;
+
+        public delegate void UpdateUserProfileHandler();
+
+        public event UpdateUserProfileHandler UpdateUserProfileEvent;
         public UserProfile(User user)
         {
             InitializeComponent();
@@ -33,15 +37,26 @@ namespace PhoneHub.VIEW
 
         private void updateProfile(object sender, EventArgs e)
         {
+            // Lưu lại email cũ để dùng kiểm tra mật khẩu
+            string oldEmail = _user.Email;
+
+            // Kiểm tra bắt buộc nhập liệu trước
+            if (string.IsNullOrEmpty(userNameTB.Text) || string.IsNullOrEmpty(emailTB.Text) ||
+                string.IsNullOrEmpty(sdtTB.Text) || string.IsNullOrEmpty(addressTB.Text))
+            {
+                MessageBox.Show("Please fill all fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             _user.Name = userNameTB.Text;
             _user.Email = emailTB.Text;
             _user.PhoneNumber = sdtTB.Text;
             _user.Address = addressTB.Text;
+
             if (!string.IsNullOrEmpty(newPassTB.Text))
             {
                 string oldPassword = oldPassTB.Text;
-                // Check if the old password is correct
-                if (string.IsNullOrEmpty(oldPassword) || !_userService.IsPassWordCorrect(_user.Email,oldPassword))
+                if (string.IsNullOrEmpty(oldPassword) || !_userService.IsPassWordCorrect(oldPassword, oldEmail))
                 {
                     MessageBox.Show("Old password is incorrect", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -53,14 +68,14 @@ namespace PhoneHub.VIEW
                     MessageBox.Show("Password does not match", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                _user.Password = newPassword;
+
+                // Mã hóa mật khẩu mới trước khi lưu
+                _user.Password = _userService.HashPassword(newPassword);
             }
-            if (string.IsNullOrEmpty(_user.Name) || string.IsNullOrEmpty(_user.Email) || string.IsNullOrEmpty(_user.PhoneNumber) || string.IsNullOrEmpty(_user.Address))
-            {
-                MessageBox.Show("Please fill all fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+
             this._userService.Update(_user);
+            MessageBox.Show("Update user successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            UpdateUserProfileEvent?.Invoke();
             this.Close();
         }
 
