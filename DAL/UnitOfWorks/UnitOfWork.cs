@@ -78,12 +78,5 @@ namespace PhoneHub.DAL.UnitOfWorks
                 _disposed = true;
             }
         }
-
-        public Task SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        // Đã loại bỏ các phương thức DisposeAsync và DisposeAsyncCore
     }
 }

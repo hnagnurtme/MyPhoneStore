@@ -81,7 +81,7 @@ namespace PhoneHub.BLL.Services
                 Password = hashedPassword,
                 PhoneNumber = phone,
                 Address = address,
-                RoleId = 2, // mặc định là user
+                RoleId = 2, 
                 CreatedAt = DateTime.Now,
                 LastLoginDate = null,
                 IsActive = true,
@@ -95,7 +95,7 @@ namespace PhoneHub.BLL.Services
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             return true;
-        }
+        }   
 
         public string HashPassword(string password)
         {

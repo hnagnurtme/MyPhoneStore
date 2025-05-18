@@ -15,7 +15,6 @@ namespace PhoneHub.DAL.UnitOfWorks
         IRepository<Booking> BookingRepository { get; }
         IRepository<T> Repository<T>() where T : class;
         void Save();
-        Task SaveAsync();
 
     }
 

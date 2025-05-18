@@ -21,26 +21,26 @@ namespace PhoneHub.DAL
         {
             base.OnModelCreating(modelBuilder);
 
-            // Configure User-Role relationship (Many-to-One)
+           
             modelBuilder.Entity<User>()
                 .HasOne(u => u.Role)
                 .WithMany(r => r.Users)
                 .HasForeignKey(u => u.RoleId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Configure User-Booking relationship (One-to-Many)
+          
             modelBuilder.Entity<Booking>()
                 .HasOne(b => b.User)
                 .WithMany(u => u.Bookings)
                 .HasForeignKey(b => b.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Configure Product-Booking relationship (One-to-Many)
+          
             modelBuilder.Entity<Booking>()
                 .HasOne(b => b.Product)
                 .WithMany(p => p.Bookings)
                 .HasForeignKey(b => b.ProductId)
-                .OnDelete(DeleteBehavior.Restrict);            // Seed some basic roles
+                .OnDelete(DeleteBehavior.Restrict);            
             modelBuilder.Entity<Role>().HasData(
                 new Role { 
                     Id = 1, 

@@ -240,11 +240,11 @@ namespace PhoneHub.VIEW
             {
                 productBindingSource.Add(product);
             }
-        }        private void addProduct(object sender, EventArgs e)
+        }       
+        private void addProduct(object sender, EventArgs e)
         {
             CreateProduct createProduct = new CreateProduct(new Product());
             
-            // Subscribe to the ProductChanged event to refresh the current view
             string currentSearch = string.IsNullOrWhiteSpace(searchName.Text) ? "ALL" : searchName.Text;
             createProduct.ProductChanged += () => ShowProducts(currentSearch);
             
